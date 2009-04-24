@@ -8,13 +8,20 @@
 
 #import "iexpensetrackerAppDelegate.h"
 #import "RootViewController.h"
+#import "NewExpenseViewController.h"
 
 
 @implementation iexpensetrackerAppDelegate
 
 @synthesize window;
 @synthesize navigationController;
+@synthesize newExpenseViewController;
 
+
+
+- (IBAction) showNewExpenseView {
+	[navigationController pushViewController:newExpenseViewController animated:YES];
+}
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {
 	
