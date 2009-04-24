@@ -11,7 +11,7 @@
 @class NewExpenseViewController;
 @class ExpensesRatioViewController;
 
-@interface ExpensesListViewController : UIViewController <UITableViewDataSource> {
+@interface ExpensesListViewController : UITableViewController <UITableViewDataSource> {
 	IBOutlet NewExpenseViewController *newExpenseViewController;
 	IBOutlet ExpensesRatioViewController *expensesRatioViewController;
 	IBOutlet UITableView *tableView;
