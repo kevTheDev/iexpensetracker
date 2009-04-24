@@ -39,7 +39,7 @@
 					<object class="IBUIToolbar" id="778661951">
 						<reference key="NSNextResponder" ref="1003466480"/>
 						<int key="NSvFlags">266</int>
-						<string key="NSFrame">{{0, 416}, {320, 44}}</string>
+						<string key="NSFrame">{{0, 377}, {320, 44}}</string>
 						<reference key="NSSuperview" ref="1003466480"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
@@ -55,7 +55,7 @@
 					<object class="IBUISegmentedControl" id="332139730">
 						<reference key="NSNextResponder" ref="1003466480"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{20, 351}, {280, 44}}</string>
+						<string key="NSFrame">{{20, 312}, {280, 44}}</string>
 						<reference key="NSSuperview" ref="1003466480"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
@@ -135,7 +135,7 @@
 						<int key="IBUITextAlignment">1</int>
 					</object>
 				</object>
-				<string key="NSFrameSize">{320, 460}</string>
+				<string key="NSFrameSize">{320, 421}</string>
 				<reference key="NSSuperview"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">3</int>
@@ -251,9 +251,9 @@
 						<reference key="object" ref="1003466480"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="778661951"/>
 							<reference ref="783609660"/>
 							<reference ref="824169378"/>
+							<reference ref="778661951"/>
 							<reference ref="332139730"/>
 						</object>
 						<reference key="parent" ref="360949347"/>
@@ -334,7 +334,7 @@
 					<string>ExpensesViewController</string>
 					<string>{{0, 365}, {320, 480}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-					<string>{{605, 257}, {320, 460}}</string>
+					<string>{{564, 366}, {320, 421}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				</object>
 			</object>
