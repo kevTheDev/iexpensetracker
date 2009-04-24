@@ -16,7 +16,7 @@
 	
 	CGRect necessaryFrame = necessaryLabel.frame;	
 	necessaryFrame.origin.x = 0;
-	necessaryFrame.origin.y = 40;	
+	necessaryFrame.origin.y = 0;	
 	necessaryFrame.size.height = 2.15 * (float) percentageNecessary;
 	necessaryLabel.frame = necessaryFrame;
 	
@@ -27,7 +27,7 @@
 	
 	CGRect luxuryFrame = luxuryLabel.frame;
 	luxuryFrame.origin.x = 0;
-	luxuryFrame.origin.y = 40 + necessaryLabel.frame.size.height;
+	luxuryFrame.origin.y = 0 + necessaryLabel.frame.size.height;
 	luxuryFrame.size.height = 2.15 * (float) percentageLuxury;	
 	luxuryLabel.frame = luxuryFrame;	
 	return;

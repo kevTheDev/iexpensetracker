@@ -34,12 +34,12 @@ static int multipleRowCallback(void *queryValuesVP, int columnCount, char **valu
 }
 
 + (NSString *)pathToDB {
-	NSString *dbName = @"expensesDatabase";
+	NSString *dbName = @"expenses";
     NSString *originalDBPath = [[NSBundle mainBundle] pathForResource:dbName ofType:@"db"];
     NSString *path = nil;
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *appSupportDir = [paths objectAtIndex:0];
-    NSString *dbNameDir = [NSString stringWithFormat:@"%@/ExpensesDatabase", appSupportDir];
+    NSString *dbNameDir = [NSString stringWithFormat:@"%@/Expenses", appSupportDir];
     NSFileManager *fileManager = [NSFileManager defaultManager];
     BOOL isDir = NO;
     BOOL dirExists = [fileManager fileExistsAtPath:dbNameDir isDirectory:&isDir];
