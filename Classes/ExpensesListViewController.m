@@ -23,9 +23,10 @@
 		
 		//[expenses removeObjectAtIndex:indexPath.row];
 		
-		[tv deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade]; 
+		[tv deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
 	}
 	[tv endUpdates];
+	[tv reloadData];
 } 
 
 

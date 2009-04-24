@@ -11,6 +11,10 @@
 
 @implementation ExpenseDAO
 
++ (void)deleteExpense {
+	return [SQLiteAccess deleteWithSQL:@"DELETE FROM expenses LIMIT 1"];
+}
+
 + (NSArray *)fetchExpenses {
 	return [SQLiteAccess selectManyValuesWithSQL:@"SELECT expense_name FROM expenses"];
 	//NSArray *sqlObjects = [SQLiteAccess selectManyValuesWithSQL:@"SELECT id, expense_name FROM expenses"];

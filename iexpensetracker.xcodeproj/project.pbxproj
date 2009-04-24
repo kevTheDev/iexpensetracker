@@ -28,6 +28,7 @@
 		DE9D7B8D0FA1BF4700052CBC /* expenses.sql in Resources */ = {isa = PBXBuildFile; fileRef = DE9D7B8C0FA1BF4700052CBC /* expenses.sql */; };
 		DE9D7B8F0FA1BF7E00052CBC /* expenses.db in Resources */ = {isa = PBXBuildFile; fileRef = DE9D7B8E0FA1BF7E00052CBC /* expenses.db */; };
 		DEBA94B10FA07B94002ED087 /* ExpensesRatioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEBA94B00FA07B94002ED087 /* ExpensesRatioViewController.m */; };
+		DECA210F0FA212E80037359B /* Expense.m in Sources */ = {isa = PBXBuildFile; fileRef = DECA210E0FA212E80037359B /* Expense.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,8 @@
 		DE9D7B8E0FA1BF7E00052CBC /* expenses.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = expenses.db; sourceTree = "<group>"; };
 		DEBA94AF0FA07B94002ED087 /* ExpensesRatioViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpensesRatioViewController.h; sourceTree = "<group>"; };
 		DEBA94B00FA07B94002ED087 /* ExpensesRatioViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpensesRatioViewController.m; sourceTree = "<group>"; };
+		DECA210D0FA212E80037359B /* Expense.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Expense.h; sourceTree = "<group>"; };
+		DECA210E0FA212E80037359B /* Expense.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Expense.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +99,8 @@
 				DE9690610FA1B89B00917C65 /* ExpenseDAO.m */,
 				DE9690970FA1B8DA00917C65 /* NewExpenseViewController.h */,
 				DE9690980FA1B8DA00917C65 /* NewExpenseViewController.m */,
+				DECA210D0FA212E80037359B /* Expense.h */,
+				DECA210E0FA212E80037359B /* Expense.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -233,6 +238,7 @@
 				DE96905A0FA1B81F00917C65 /* ExpensesListViewController.m in Sources */,
 				DE9690620FA1B89B00917C65 /* ExpenseDAO.m in Sources */,
 				DE9690990FA1B8DA00917C65 /* NewExpenseViewController.m in Sources */,
+				DECA210F0FA212E80037359B /* Expense.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
