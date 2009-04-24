@@ -56,11 +56,9 @@
 }
 
 - (IBAction)seeMonthlyExpenses {
-	NSLog(@"WEEK PRESSED");
+	NSLog(@"MONTH PRESSED");
 	int percentageNecessary = [ExpenseDAO lastMonthsPercentageNecessary];
 	int percentageLuxury = 100 - percentageNecessary;
-	
-    NSLog(@"ALL PRESSED '%d'", percentageNecessary);
 	
 	NSString *percentageNecessaryString = [NSString stringWithFormat:@"%d%%", percentageNecessary];
 	NSString *percentageLuxuryString = [NSString stringWithFormat:@"%d%%", percentageLuxury];
@@ -88,8 +86,6 @@
 	NSLog(@"WEEK PRESSED");
 	int percentageNecessary = [ExpenseDAO lastWeeksPercentageNecessary];
 	int percentageLuxury = 100 - percentageNecessary;
-	
-    NSLog(@"ALL PRESSED '%d'", percentageNecessary);
 	
 	NSString *percentageNecessaryString = [NSString stringWithFormat:@"%d%%", percentageNecessary];
 	NSString *percentageLuxuryString = [NSString stringWithFormat:@"%d%%", percentageLuxury];
