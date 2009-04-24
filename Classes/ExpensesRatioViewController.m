@@ -18,7 +18,8 @@
 
 - (IBAction)showListView {
 	NSLog(@"POP VIEW");
-	[self presentModalViewController:expensesListViewController animated:YES];
+	//[self presentModalViewController:expensesListViewController animated:YES];
+	[[self navigationController] pushViewController:expensesListViewController animated:YES];
 }
 
 - (void) setupNecessaryRatioFrame:(int)percentageNecessary {
@@ -173,6 +174,7 @@
 								   target:self 
 								   action:@selector(showNewExpenseView)] autorelease]; 
 	self.navigationItem.rightBarButtonItem = addButton;
+	self.title = @"Overview";
 }
 
 -(void)viewWillAppear:(BOOL)animated{

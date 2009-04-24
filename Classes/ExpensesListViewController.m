@@ -53,21 +53,20 @@
  }
  */
 
-- (IBAction)showNewExpenseView {
+- (IBAction) showNewExpenseView {
 	NSLog(@"SHOW NEW EXPENSE VIEW");
 	[[self navigationController] pushViewController:newExpenseViewController animated:YES];
 }
 
 
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
-	//UIBarButtonItem *addButton = [[[UIBarButtonItem alloc] 
-//								   initWithBarButtonSystemItem:UIBarButtonSystemItemAdd 
-//								   target:self 
-//								   action:@selector(showNewExpenseView)] autorelease]; 
-//	self.navigationItem.rightBarButtonItem = addButton;
-	
+	UIBarButtonItem *addButton = [[[UIBarButtonItem alloc] 
+								   initWithBarButtonSystemItem:UIBarButtonSystemItemAdd 
+								   target:self 
+								   action:@selector(showNewExpenseView)] autorelease]; 
+	self.navigationItem.rightBarButtonItem = addButton;
+	self.title = @"Expenses";
 }
 
 -(void)viewWillAppear:(BOOL)animated{

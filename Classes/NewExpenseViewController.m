@@ -79,6 +79,7 @@
 								   action:@selector(cancel)] autorelease];
 	
 	self.navigationItem.leftBarButtonItem = cancelButton;
+	self.title = @"Add Expense";
 }
 
 
