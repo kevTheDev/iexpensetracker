@@ -17,7 +17,6 @@
 	IBOutlet UITableView *tableView;
 }
 
-- (IBAction)showRatioView;
 - (IBAction)showNewExpenseView;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;

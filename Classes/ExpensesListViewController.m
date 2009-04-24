@@ -14,10 +14,6 @@
 
 @implementation ExpensesListViewController
 
-- (IBAction)showRatioView {
-	[self dismissModalViewControllerAnimated:YES];
-}
-
 - (UITableViewCell *)tableView:(UITableView *)tv cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 	static NSString *CellIdentifier = @"Expense"; 
 	UITableViewCell *cell = 
