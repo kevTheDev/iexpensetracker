@@ -23,8 +23,8 @@
 	UIToolbar *toolbar;
 }
 
-- (IBAction) showListView;
-- (IBAction) showRatioView;
+//- (IBAction) showListView;
+//- (IBAction) showRatioView;
 - (IBAction) showNewExpenseView;
 - (IBAction) cancel;
 

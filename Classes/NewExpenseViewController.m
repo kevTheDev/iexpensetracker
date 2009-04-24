@@ -18,8 +18,7 @@
 
 - (IBAction)backgroundClick:(id)sender {
 	[costTextField resignFirstResponder];
-	[nameTextField resignFirstResponder];
-	
+	[nameTextField resignFirstResponder];	
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
@@ -47,7 +46,7 @@
 
 
 
-
+// TODO Refactor to app delegate method
 - (IBAction)cancel {
 	//[self dismissModalViewControllerAnimated:YES];
 	[[self navigationController] popViewControllerAnimated:YES];

@@ -20,10 +20,12 @@
 	IBOutlet UILabel *luxuryLabel;
 }
 
-- (IBAction)seeListView;
+
 - (IBAction)seeMonthlyExpenses;
 - (IBAction)seeWeeklyExpenses;
 - (IBAction)seeAllExpenses;
+
+- (IBAction)showListView;
 - (IBAction)showNewExpenseView;
 
 - (void) segmentAction:(id)sender;

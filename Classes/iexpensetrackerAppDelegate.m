@@ -31,17 +31,17 @@
 	[navigationController pushViewController:newExpenseViewController animated:YES];		
 }
 
-- (IBAction) showListView {
-	self.expensesListViewController.title = @"Expenses";
-	[navigationController pushViewController:expensesListViewController animated:YES];
-}
-
-- (IBAction) showRatioView {
-	self.expensesRatioViewController.title = @"Overview";
-	[navigationController pushViewController:expensesRatioViewController animated:YES];
-	
-	[[navigationController view] addSubview:toolbar];
-}
+//- (IBAction) showListView {
+//	self.expensesListViewController.title = @"Expenses";
+//	[navigationController pushViewController:expensesListViewController animated:YES];
+//}
+//
+//- (IBAction) showRatioView {
+//	self.expensesRatioViewController.title = @"Overview";
+//	[navigationController pushViewController:expensesRatioViewController animated:YES];
+//	
+//	[[navigationController view] addSubview:toolbar];
+//}
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {
 	

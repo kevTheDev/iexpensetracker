@@ -16,6 +16,10 @@
 @synthesize newExpenseViewController;
 @synthesize expensesListViewController;
 
+- (IBAction)showListView {
+	NSLog(@"POP VIEW");
+	[self presentModalViewController:expensesListViewController animated:YES];
+}
 
 - (void) setupNecessaryRatioFrame:(int)percentageNecessary {
 	
@@ -38,9 +42,6 @@
 	return;
 }
 
-- (IBAction)addNewExpense {
-	[self presentModalViewController:newExpenseViewController animated:YES];
-}
 
 - (void) segmentAction:(id)sender {
 
@@ -141,11 +142,6 @@
 	
 }
 
-
-- (IBAction)seeListView {
-	[self presentModalViewController:expensesListViewController animated:YES];
-}
-
 /*
  // The designated initializer. Override to perform setup that is required before the view is loaded.
  - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
@@ -164,6 +160,7 @@
 
 - (IBAction) showNewExpenseView {
 	NSLog(@"SHOW NEW EXPENSE VIEW");
+	[[self navigationController] popViewControllerAnimated:YES];
 	[[self navigationController] pushViewController:newExpenseViewController animated:YES];
 }
 
