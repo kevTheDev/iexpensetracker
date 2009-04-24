@@ -14,10 +14,6 @@
 
 @implementation ExpensesListViewController
 
-- (IBAction)addNewExpense {
-	[self presentModalViewController:newExpenseViewController animated:YES];
-}
-
 - (IBAction)seeRatioView {
 	[self dismissModalViewControllerAnimated:YES];
 }

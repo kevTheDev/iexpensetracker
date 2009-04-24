@@ -59,14 +59,14 @@
 	NSString *sql = [NSString stringWithFormat:@"INSERT INTO expenses (expense_name, expense_cost, expense_necessary, created_at) VALUES ('%@', %f, 1, current_timestamp)", [nameTextField text], [[costTextField text] floatValue]];
 	
 	[SQLiteAccess insertWithSQL:sql];
-	[self dismissModalViewControllerAnimated:YES];
+	[[self navigationController] popViewControllerAnimated:YES];
 }
 
 - (void) addUnnecessaryExpense {
-	
+	NSLog (@"add unnecessary expense");
 	NSString *sql = [NSString stringWithFormat:@"INSERT INTO expenses (expense_name, expense_cost, expense_necessary, created_at) VALUES ('%@', %f, 0, current_timestamp)", [nameTextField text], [[costTextField text] floatValue]];
 	[SQLiteAccess insertWithSQL:sql];
-	[self dismissModalViewControllerAnimated:YES];
+	[[self navigationController] popViewControllerAnimated:YES];
 	
 }
 
