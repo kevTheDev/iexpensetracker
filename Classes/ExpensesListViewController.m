@@ -14,9 +14,6 @@
 
 @implementation ExpensesListViewController
 
-@synthesize expenses;
-
-
 - (IBAction)addNewExpense {
 	[self presentModalViewController:newExpenseViewController animated:YES];
 }
@@ -33,9 +30,7 @@
 		cell = [[[UITableViewCell alloc]  
 				 initWithFrame:CGRectZero 
 				 reuseIdentifier:CellIdentifier] autorelease]; 
-	}
-	//NSArray *expensesArray = [ExpenseDAO fetchExpenses];
-	
+	}	
     cell.text = [[ExpenseDAO fetchExpenses] objectAtIndex:indexPath.row];
 	return cell; 
 }
@@ -91,6 +86,8 @@
 
 
 - (void)dealloc {
+	[newExpenseViewController release];
+	[expensesRatioViewController release];
     [super dealloc];
 }
 

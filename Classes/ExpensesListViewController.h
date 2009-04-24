@@ -14,7 +14,6 @@
 @interface ExpensesListViewController : UIViewController <UITableViewDataSource> {
 	IBOutlet NewExpenseViewController *newExpenseViewController;
 	IBOutlet ExpensesRatioViewController *expensesRatioViewController;
-	NSArray *expenses;
 	IBOutlet UITableView *tableView;
 }
 
@@ -23,9 +22,6 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section;
-
-
-@property (nonatomic, retain) NSArray *expenses; 
 
 @end
 

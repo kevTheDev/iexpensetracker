@@ -11,22 +11,22 @@
 
 @class ExpensesListViewController;
 
-@interface NewExpenseViewController : UIViewController <UITextFieldDelegate> {
-	IBOutlet ExpensesListViewController *expensesListViewController;
-	NSString *dbFilePath;
-	
+@interface NewExpenseViewController : UIViewController <UITextFieldDelegate> {		
 	IBOutlet UITextField *costTextField;
-	IBOutlet UITextField *nameTextField; 
+	IBOutlet UITextField *nameTextField;
+	IBOutlet ExpensesListViewController *expensesListViewController;
 }
 
-@property (nonatomic, retain) UITextField *costTextField;
-@property (nonatomic, retain) UITextField *nameTextField;
-@property (nonatomic, retain) ExpensesListViewController *expensesListViewController;
+@property (nonatomic, retain) IBOutlet UITextField *costTextField;
+@property (nonatomic, retain) IBOutlet UITextField *nameTextField;
+@property (nonatomic, retain) IBOutlet ExpensesListViewController *expensesListViewController;
 
 - (IBAction)cancel;
 - (IBAction)addNecessaryExpense;
 - (IBAction)addUnnecessaryExpense;
-- (void)textFieldDidEndEditing:(UITextField *)textField;
 - (IBAction)backgroundClick:(id)sender;
+
+- (void)textFieldDidEndEditing:(UITextField *)textField;
+
 
 @end

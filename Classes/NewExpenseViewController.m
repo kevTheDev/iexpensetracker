@@ -98,6 +98,7 @@
 
 
 - (void)dealloc {
+	[expensesListViewController release];
 	[costTextField release];
 	[nameTextField release];
     [super dealloc];
