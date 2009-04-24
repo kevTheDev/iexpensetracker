@@ -16,15 +16,15 @@
 
 - (void)tableView:(UITableView *)tv commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath { 
 	
-	//self.tableView.beginUpdates;
 	[tv beginUpdates];
 	
-	//[tableView beginUpdates]; 
-	//if (editingStyle == UITableViewCellEditingStyleDelete) { 
-//		[expenses removeObjectAtIndex:indexPath.row]; 
-//		[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] 
-//						 withRowAnimation:UITableViewRowAnimationFade]; 
-//	}
+	
+	if (editingStyle == UITableViewCellEditingStyleDelete) {
+		
+		//[expenses removeObjectAtIndex:indexPath.row];
+		
+		[tv deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade]; 
+	}
 	[tv endUpdates];
 } 
 

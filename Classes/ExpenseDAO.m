@@ -13,6 +13,11 @@
 
 + (NSArray *)fetchExpenses {
 	return [SQLiteAccess selectManyValuesWithSQL:@"SELECT expense_name FROM expenses"];
+	//NSArray *sqlObjects = [SQLiteAccess selectManyValuesWithSQL:@"SELECT id, expense_name FROM expenses"];
+	//for(NSObject *sqlObject in sqlObjects) {
+//		NSLog(@"SQL OBJECT RETURNED");
+//	}
+//	return sqlObjects;
 }
 
 + (NSArray *)fetchNecessaryExpenses {
