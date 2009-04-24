@@ -38,19 +38,14 @@
 }
 
 - (void) segmentAction:(id)sender {
-	//UISegmentedControl* segmentedControl = sender;
+
 	if( [segmentedControl selectedSegmentIndex] == 0 ){
-		//NSLog(@"you selected the first one!");
 		[self seeMonthlyExpenses];
 	}
-	
-	if( [segmentedControl selectedSegmentIndex] == 1 ) {
-		//NSLog(@"you selected the second one!");
+	else if( [segmentedControl selectedSegmentIndex] == 1 ) {
 		[self seeWeeklyExpenses];
 	}
-	
-	if( [segmentedControl selectedSegmentIndex] == 2 ) {
-		//NSLog(@"you selected the third one!");
+	else if( [segmentedControl selectedSegmentIndex] == 2 ) {
 		[self seeAllExpenses];
 	}
 }
@@ -78,7 +73,7 @@
     
 	[self setupNecessaryRatioFrame:percentageNecessary];
 	[self setupLuxuryRatioFrame:percentageLuxury];
-    
+	
 	return;
 }
 
@@ -105,7 +100,7 @@
     
 	[self setupNecessaryRatioFrame:percentageNecessary];
 	[self setupLuxuryRatioFrame:percentageLuxury];
-	
+		
 	return;
 	
 }
