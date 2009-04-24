@@ -15,6 +15,12 @@
 		2899E5600DE3E45000AC0155 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2899E55F0DE3E45000AC0155 /* RootViewController.xib */; };
 		28AD73600D9D9599002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD735F0D9D9599002E5188 /* MainWindow.xib */; };
 		28C286E10D94DF7D0034E888 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */; };
+		DE9690560FA1B7E500917C65 /* SQLiteAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = DE9690550FA1B7E500917C65 /* SQLiteAccess.m */; };
+		DE96905A0FA1B81F00917C65 /* ExpensesListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE9690590FA1B81F00917C65 /* ExpensesListViewController.m */; };
+		DE9690620FA1B89B00917C65 /* ExpenseDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = DE9690610FA1B89B00917C65 /* ExpenseDAO.m */; };
+		DE9690990FA1B8DA00917C65 /* NewExpenseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE9690980FA1B8DA00917C65 /* NewExpenseViewController.m */; };
+		DE9690FB0FA1BB8F00917C65 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DE9690FA0FA1BB8F00917C65 /* libsqlite3.dylib */; };
+		DEBA94B10FA07B94002ED087 /* ExpensesRatioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEBA94B00FA07B94002ED087 /* ExpensesRatioViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +37,17 @@
 		28C286E00D94DF7D0034E888 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DE9690540FA1B7E500917C65 /* SQLiteAccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLiteAccess.h; sourceTree = "<group>"; };
+		DE9690550FA1B7E500917C65 /* SQLiteAccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLiteAccess.m; sourceTree = "<group>"; };
+		DE9690580FA1B81F00917C65 /* ExpensesListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpensesListViewController.h; sourceTree = "<group>"; };
+		DE9690590FA1B81F00917C65 /* ExpensesListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpensesListViewController.m; sourceTree = "<group>"; };
+		DE9690600FA1B89B00917C65 /* ExpenseDAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpenseDAO.h; sourceTree = "<group>"; };
+		DE9690610FA1B89B00917C65 /* ExpenseDAO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpenseDAO.m; sourceTree = "<group>"; };
+		DE9690970FA1B8DA00917C65 /* NewExpenseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewExpenseViewController.h; sourceTree = "<group>"; };
+		DE9690980FA1B8DA00917C65 /* NewExpenseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewExpenseViewController.m; sourceTree = "<group>"; };
+		DE9690FA0FA1BB8F00917C65 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		DEBA94AF0FA07B94002ED087 /* ExpensesRatioViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpensesRatioViewController.h; sourceTree = "<group>"; };
+		DEBA94B00FA07B94002ED087 /* ExpensesRatioViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpensesRatioViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +58,7 @@
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */,
+				DE9690FB0FA1BB8F00917C65 /* libsqlite3.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,6 +72,16 @@
 				28C286E00D94DF7D0034E888 /* RootViewController.m */,
 				1D3623240D0F684500981E51 /* iexpensetrackerAppDelegate.h */,
 				1D3623250D0F684500981E51 /* iexpensetrackerAppDelegate.m */,
+				DEBA94AF0FA07B94002ED087 /* ExpensesRatioViewController.h */,
+				DEBA94B00FA07B94002ED087 /* ExpensesRatioViewController.m */,
+				DE9690540FA1B7E500917C65 /* SQLiteAccess.h */,
+				DE9690550FA1B7E500917C65 /* SQLiteAccess.m */,
+				DE9690580FA1B81F00917C65 /* ExpensesListViewController.h */,
+				DE9690590FA1B81F00917C65 /* ExpensesListViewController.m */,
+				DE9690600FA1B89B00917C65 /* ExpenseDAO.h */,
+				DE9690610FA1B89B00917C65 /* ExpenseDAO.m */,
+				DE9690970FA1B8DA00917C65 /* NewExpenseViewController.h */,
+				DE9690980FA1B8DA00917C65 /* NewExpenseViewController.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -74,6 +102,7 @@
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
+				DE9690FA0FA1BB8F00917C65 /* libsqlite3.dylib */,
 			);
 			name = CustomTemplate;
 			sourceTree = "<group>";
@@ -171,6 +200,11 @@
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* iexpensetrackerAppDelegate.m in Sources */,
 				28C286E10D94DF7D0034E888 /* RootViewController.m in Sources */,
+				DEBA94B10FA07B94002ED087 /* ExpensesRatioViewController.m in Sources */,
+				DE9690560FA1B7E500917C65 /* SQLiteAccess.m in Sources */,
+				DE96905A0FA1B81F00917C65 /* ExpensesListViewController.m in Sources */,
+				DE9690620FA1B89B00917C65 /* ExpenseDAO.m in Sources */,
+				DE9690990FA1B8DA00917C65 /* NewExpenseViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
