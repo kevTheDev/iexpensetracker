@@ -14,7 +14,7 @@
 
 @synthesize costTextField;
 @synthesize nameTextField;
-@synthesize showExpensesController;
+@synthesize expensesListViewController;
 
 - (IBAction)backgroundClick:(id)sender {
 	[costTextField resignFirstResponder];
@@ -49,7 +49,8 @@
 
 
 - (IBAction)cancel {
-	[self dismissModalViewControllerAnimated:YES];
+	//[self dismissModalViewControllerAnimated:YES];
+	[[self navigationController] popViewControllerAnimated:YES];
 }
 
 - (void) addNecessaryExpense {
@@ -71,10 +72,14 @@
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
-    [super viewDidLoad];
-	
+    [super viewDidLoad];	
 	[costTextField becomeFirstResponder];
+	UIBarButtonItem *cancelButton = [[[UIBarButtonItem alloc] 
+								   initWithBarButtonSystemItem:UIBarButtonSystemItemCancel 
+								   target:self 
+								   action:@selector(cancel)] autorelease];
 	
+	self.navigationItem.leftBarButtonItem = cancelButton;
 }
 
 
@@ -93,6 +98,8 @@
 
 
 - (void)dealloc {
+	[costTextField release];
+	[nameTextField release];
     [super dealloc];
 }
 

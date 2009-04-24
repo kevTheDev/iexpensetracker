@@ -12,7 +12,7 @@
 @class ExpensesListViewController;
 
 @interface NewExpenseViewController : UIViewController <UITextFieldDelegate> {
-	IBOutlet ExpensesListViewController *showExpensesController;
+	IBOutlet ExpensesListViewController *expensesListViewController;
 	NSString *dbFilePath;
 	
 	IBOutlet UITextField *costTextField;
@@ -21,7 +21,7 @@
 
 @property (nonatomic, retain) UITextField *costTextField;
 @property (nonatomic, retain) UITextField *nameTextField;
-@property (nonatomic, retain) ExpensesListViewController *showExpensesController;
+@property (nonatomic, retain) ExpensesListViewController *expensesListViewController;
 
 - (IBAction)cancel;
 - (IBAction)addNecessaryExpense;
