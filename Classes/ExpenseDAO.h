@@ -13,6 +13,7 @@
 	
 }
 
++ (int) expensesCount;
 + (void)deleteExpense;
 + (NSArray *)fetchExpenses;
 + (NSArray *)fetchNecessaryExpenses;

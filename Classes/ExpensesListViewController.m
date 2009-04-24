@@ -11,6 +11,7 @@
 #import "SQLiteAccess.h"
 #import "ExpenseDAO.h"
 #import "ExpensesRatioViewController.h"
+#import "Expense.h"
 
 @implementation ExpensesListViewController
 
@@ -38,14 +39,18 @@
 		cell = [[[UITableViewCell alloc]  
 				 initWithFrame:CGRectZero 
 				 reuseIdentifier:CellIdentifier] autorelease]; 
-	}	
-    cell.text = [[ExpenseDAO fetchExpenses] objectAtIndex:indexPath.row];
+	}
+	
+	Expense *expense = [[ExpenseDAO fetchExpenses] objectAtIndex:indexPath.row];
+	
+	cell.text = [expense name];
 	return cell; 
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-	NSArray *expensesArray = [ExpenseDAO fetchExpenses];
-	return [expensesArray count];
+	//NSArray *expensesArray = [ExpenseDAO fetchExpenses];
+	//return [expensesArray count];
+	return [ExpenseDAO expensesCount];
 }
 
 

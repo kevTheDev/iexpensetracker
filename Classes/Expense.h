@@ -11,12 +11,12 @@
 
 @interface Expense : NSObject {
 	NSString *name;
-//	NSInteger *id;
+	int expense_id;
 }
 
-//@property (nonatomic, retain) 
+@property (nonatomic) int expense_id;
 @property (nonatomic, retain) NSString *name;
 
-- (void)initWithName:(NSString *)expense_name;
+//+ (void)initWithName:(NSString *)expense_name;
 
 @end

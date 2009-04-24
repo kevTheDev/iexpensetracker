@@ -8,20 +8,49 @@
 
 #import "ExpenseDAO.h"
 #import "SQLiteAccess.h"
+#import "Expense.h"
 
 @implementation ExpenseDAO
 
 + (void)deleteExpense {
+	
+	
+	
 	return [SQLiteAccess deleteWithSQL:@"DELETE FROM expenses LIMIT 1"];
 }
 
++ (int) expensesCount {
+	NSArray *sqlObjects = [SQLiteAccess selectManyRowsWithSQL:@"SELECT expense_id FROM expenses"];
+	return [sqlObjects count];
+}
+
 + (NSArray *)fetchExpenses {
-	return [SQLiteAccess selectManyValuesWithSQL:@"SELECT expense_name FROM expenses"];
-	//NSArray *sqlObjects = [SQLiteAccess selectManyValuesWithSQL:@"SELECT id, expense_name FROM expenses"];
-	//for(NSObject *sqlObject in sqlObjects) {
-//		NSLog(@"SQL OBJECT RETURNED");
-//	}
-//	return sqlObjects;
+	
+	
+	NSArray *sqlObjects = [SQLiteAccess selectManyRowsWithSQL:@"SELECT * FROM expenses"];
+	NSMutableArray *expenses = [NSMutableArray arrayWithCapacity:[sqlObjects count]];
+	
+	NSLog(@"Found this many expesnes: %d",[sqlObjects count]);
+	
+	
+	for(int i=0; i < [sqlObjects count]; i++) {
+		
+		Expense *expense = [Expense alloc];
+
+		NSDictionary *row = [sqlObjects objectAtIndex:i];
+		NSString *name = [row objectForKey:@"expense_name"];
+		NSString *expenseIdString = [row objectForKey:@"expense_id"];
+		
+		int expense_id = [expenseIdString intValue];
+		
+		expense.name = name;
+		expense.expense_id = expense_id;
+		[expenses addObject:expense];
+		[expense release];
+
+	}
+
+	return [NSArray arrayWithArray:expenses];
 }
 
 + (NSArray *)fetchNecessaryExpenses {

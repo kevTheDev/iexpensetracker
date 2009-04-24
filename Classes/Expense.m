@@ -12,9 +12,10 @@
 @implementation Expense
 
 @synthesize name;
+@synthesize expense_id;
 
-- (void)initWithName:(NSString *)expense_name {
-	self.name = expense_name;
-}
+//+ (void)initWithName:(NSString *)expense_name {
+//	self.name = expense_name;
+//}
 
 @end
