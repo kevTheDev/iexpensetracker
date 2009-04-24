@@ -20,6 +20,8 @@
 		DE9690620FA1B89B00917C65 /* ExpenseDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = DE9690610FA1B89B00917C65 /* ExpenseDAO.m */; };
 		DE9690990FA1B8DA00917C65 /* NewExpenseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE9690980FA1B8DA00917C65 /* NewExpenseViewController.m */; };
 		DE9690FB0FA1BB8F00917C65 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DE9690FA0FA1BB8F00917C65 /* libsqlite3.dylib */; };
+		DE96911E0FA1BD9900917C65 /* dontNeedButton.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DE96911C0FA1BD9900917C65 /* dontNeedButton.jpg */; };
+		DE96911F0FA1BD9900917C65 /* needButton.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DE96911D0FA1BD9900917C65 /* needButton.jpg */; };
 		DEBA94B10FA07B94002ED087 /* ExpensesRatioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEBA94B00FA07B94002ED087 /* ExpensesRatioViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +48,8 @@
 		DE9690970FA1B8DA00917C65 /* NewExpenseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewExpenseViewController.h; sourceTree = "<group>"; };
 		DE9690980FA1B8DA00917C65 /* NewExpenseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewExpenseViewController.m; sourceTree = "<group>"; };
 		DE9690FA0FA1BB8F00917C65 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		DE96911C0FA1BD9900917C65 /* dontNeedButton.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dontNeedButton.jpg; sourceTree = "<group>"; };
+		DE96911D0FA1BD9900917C65 /* needButton.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = needButton.jpg; sourceTree = "<group>"; };
 		DEBA94AF0FA07B94002ED087 /* ExpensesRatioViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpensesRatioViewController.h; sourceTree = "<group>"; };
 		DEBA94B00FA07B94002ED087 /* ExpensesRatioViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpensesRatioViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -119,6 +123,8 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				DE96911C0FA1BD9900917C65 /* dontNeedButton.jpg */,
+				DE96911D0FA1BD9900917C65 /* needButton.jpg */,
 				2899E55F0DE3E45000AC0155 /* RootViewController.xib */,
 				28AD735F0D9D9599002E5188 /* MainWindow.xib */,
 				8D1107310486CEB800E47090 /* Info.plist */,
@@ -187,6 +193,8 @@
 			files = (
 				28AD73600D9D9599002E5188 /* MainWindow.xib in Resources */,
 				2899E5600DE3E45000AC0155 /* RootViewController.xib in Resources */,
+				DE96911E0FA1BD9900917C65 /* dontNeedButton.jpg in Resources */,
+				DE96911F0FA1BD9900917C65 /* needButton.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
