@@ -14,6 +14,21 @@
 
 @implementation ExpensesListViewController
 
+- (void)tableView:(UITableView *)tv commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath { 
+	
+	//self.tableView.beginUpdates;
+	[tv beginUpdates];
+	
+	//[tableView beginUpdates]; 
+	//if (editingStyle == UITableViewCellEditingStyleDelete) { 
+//		[expenses removeObjectAtIndex:indexPath.row]; 
+//		[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] 
+//						 withRowAnimation:UITableViewRowAnimationFade]; 
+//	}
+	[tv endUpdates];
+} 
+
+
 - (UITableViewCell *)tableView:(UITableView *)tv cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 	static NSString *CellIdentifier = @"Expense"; 
 	UITableViewCell *cell = 
@@ -62,6 +77,7 @@
 								   target:self 
 								   action:@selector(showNewExpenseView)] autorelease]; 
 	self.navigationItem.rightBarButtonItem = addButton;
+	self.navigationItem.rightBarButtonItem = self.editButtonItem;
 	self.title = @"Expenses";
 }
 
