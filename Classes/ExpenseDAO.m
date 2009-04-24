@@ -12,11 +12,11 @@
 
 @implementation ExpenseDAO
 
-+ (void)deleteExpense {
++ (void)deleteExpense:(int)expense_id {
 	
+	NSString *sqlString = [NSString stringWithFormat:@"DELETE FROM expenses WHERE expense_id = %d", expense_id];
 	
-	
-	return [SQLiteAccess deleteWithSQL:@"DELETE FROM expenses LIMIT 1"];
+	return [SQLiteAccess deleteWithSQL:sqlString];
 }
 
 + (int) expensesCount {
