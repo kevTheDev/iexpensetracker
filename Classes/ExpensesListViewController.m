@@ -15,6 +15,8 @@
 
 @implementation ExpensesListViewController
 
+@synthesize expensesArray;
+
 - (void)tableView:(UITableView *)tv commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath { 
 	
 	[tv beginUpdates];
@@ -41,7 +43,8 @@
 				 reuseIdentifier:CellIdentifier] autorelease]; 
 	}
 	
-	Expense *expense = [[ExpenseDAO fetchExpenses] objectAtIndex:indexPath.row];
+	//expensesArray = [ExpenseDAO fetchExpenses];
+	Expense *expense = [[self expensesArray] objectAtIndex:indexPath.row];
 	
 	cell.text = [expense name];
 	return cell; 
@@ -50,7 +53,9 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 	//NSArray *expensesArray = [ExpenseDAO fetchExpenses];
 	//return [expensesArray count];
-	return [ExpenseDAO expensesCount];
+	//return [ExpenseDAO expensesCount];
+	//return [[self expensesArray] count];
+	return self.expensesArray.count;
 }
 
 
@@ -85,10 +90,12 @@
 	self.navigationItem.rightBarButtonItem = addButton;
 	self.navigationItem.rightBarButtonItem = self.editButtonItem;
 	self.title = @"Expenses";
+	self.expensesArray = [ExpenseDAO fetchExpenses];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
 	[super viewWillAppear:animated];
+	
 	[tableView reloadData];
 }
 
@@ -110,6 +117,7 @@
 - (void)dealloc {
 	[newExpenseViewController release];
 	[expensesRatioViewController release];
+	[expensesArray release];
     [super dealloc];
 }
 
