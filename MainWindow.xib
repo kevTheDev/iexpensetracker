@@ -57,12 +57,7 @@
 				<object class="NSMutableArray" key="IBUIViewControllers">
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<object class="IBUIViewController" id="619226028">
-						<object class="IBUINavigationItem" key="IBUINavigationItem" id="394667715">
-							<object class="IBUIBarButtonItem" key="IBUIRightBarButtonItem" id="13244192">
-								<int key="IBUIStyle">1</int>
-								<int key="IBUISystemItemIdentifier">4</int>
-							</object>
-						</object>
+						<object class="IBUINavigationItem" key="IBUINavigationItem" id="394667715"/>
 						<reference key="IBUIParentViewController" ref="701001926"/>
 						<string key="IBUINibName">ExpensesRatioViewController</string>
 						<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics"/>
@@ -71,6 +66,10 @@
 			</object>
 			<object class="IBUIViewController" id="610428790">
 				<string key="IBUINibName">NewExpenseViewController</string>
+				<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics"/>
+			</object>
+			<object class="IBUIViewController" id="320528299">
+				<string key="IBUINibName">ExpensesListViewController</string>
 				<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics"/>
 			</object>
 		</object>
@@ -100,14 +99,6 @@
 						<reference key="destination" ref="701001926"/>
 					</object>
 					<int key="connectionID">15</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">showNewExpenseView</string>
-						<reference key="source" ref="13244192"/>
-						<reference key="destination" ref="664661524"/>
-					</object>
-					<int key="connectionID">20</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
@@ -182,18 +173,17 @@
 						<reference key="object" ref="394667715"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="13244192"/>
 						</object>
 						<reference key="parent" ref="619226028"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">18</int>
-						<reference key="object" ref="13244192"/>
-						<reference key="parent" ref="394667715"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">21</int>
 						<reference key="object" ref="610428790"/>
+						<reference key="parent" ref="957960031"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">23</int>
+						<reference key="object" ref="320528299"/>
 						<reference key="parent" ref="957960031"/>
 					</object>
 				</object>
@@ -207,16 +197,17 @@
 					<string>11.IBPluginDependency</string>
 					<string>13.CustomClassName</string>
 					<string>13.IBPluginDependency</string>
-					<string>18.IBPluginDependency</string>
 					<string>2.IBAttributePlaceholdersKey</string>
 					<string>2.IBEditorWindowLastContentRect</string>
 					<string>2.IBPluginDependency</string>
 					<string>21.CustomClassName</string>
 					<string>21.IBEditorWindowLastContentRect</string>
 					<string>21.IBPluginDependency</string>
+					<string>23.CustomClassName</string>
+					<string>23.IBEditorWindowLastContentRect</string>
+					<string>23.IBPluginDependency</string>
 					<string>3.CustomClassName</string>
 					<string>3.IBPluginDependency</string>
-					<string>9.CustomClassName</string>
 					<string>9.IBEditorWindowLastContentRect</string>
 					<string>9.IBPluginDependency</string>
 				</object>
@@ -226,7 +217,6 @@
 					<string>UIResponder</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>ExpensesRatioViewController</string>
-					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<object class="NSMutableDictionary">
 						<bool key="EncodedWithXMLCoder">YES</bool>
@@ -242,9 +232,11 @@
 					<string>NewExpenseViewController</string>
 					<string>{{0, 365}, {320, 480}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+					<string>ExpensesListViewController</string>
+					<string>{{0, 365}, {320, 480}}</string>
+					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>iexpensetrackerAppDelegate</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-					<string>ExpensesNavigationController</string>
 					<string>{{650, 344}, {320, 480}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				</object>
@@ -269,7 +261,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">22</int>
+			<int key="maxID">28</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -294,8 +286,8 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSMutableArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>allExpensesRatioViewController</string>
-							<string>newExpensesViewController</string>
+							<string>expensesRatioViewController</string>
+							<string>newExpenseViewController</string>
 							<string>tableView</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
@@ -317,12 +309,12 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSMutableArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>addNewExpense</string>
 							<string>seeAllExpenses</string>
 							<string>seeListView</string>
 							<string>seeMonthlyExpenses</string>
 							<string>seeWeeklyExpenses</string>
 							<string>segmentAction:</string>
+							<string>showNewExpenseView</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
@@ -338,10 +330,10 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSMutableArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>expensesViewController</string>
+							<string>expensesListViewController</string>
 							<string>luxuryLabel</string>
 							<string>necessaryLabel</string>
-							<string>newExpensesViewController</string>
+							<string>newExpenseViewController</string>
 							<string>ratioLabel</string>
 							<string>segmentedControl</string>
 						</object>
@@ -407,6 +399,7 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSMutableArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>cancel</string>
 							<string>showListView</string>
 							<string>showNewExpenseView</string>
 							<string>showRatioView</string>
@@ -416,18 +409,23 @@
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
+							<string>id</string>
 						</object>
 					</object>
 					<object class="NSMutableDictionary" key="outlets">
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSMutableArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>expensesListViewController</string>
+							<string>expensesRatioViewController</string>
 							<string>navigationController</string>
 							<string>newExpenseViewController</string>
 							<string>window</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>ExpensesListViewController</string>
+							<string>ExpensesRatioViewController</string>
 							<string>UINavigationController</string>
 							<string>NewExpenseViewController</string>
 							<string>UIWindow</string>

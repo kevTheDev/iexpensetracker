@@ -8,9 +8,14 @@
 
 #import "ExpensesRatioViewController.h"
 #import "ExpenseDAO.h"
-
+#import "NewExpenseViewController.h"
+#import "ExpensesListViewController.h"
 
 @implementation ExpensesRatioViewController
+
+@synthesize newExpenseViewController;
+@synthesize expensesListViewController;
+
 
 - (void) setupNecessaryRatioFrame:(int)percentageNecessary {
 	
@@ -34,7 +39,7 @@
 }
 
 - (IBAction)addNewExpense {
-	[self presentModalViewController:newExpensesViewController animated:YES];
+	[self presentModalViewController:newExpenseViewController animated:YES];
 }
 
 - (void) segmentAction:(id)sender {
@@ -138,7 +143,7 @@
 
 
 - (IBAction)seeListView {
-	[self presentModalViewController:expensesViewController animated:YES];
+	[self presentModalViewController:expensesListViewController animated:YES];
 }
 
 /*
@@ -157,11 +162,20 @@
  }
  */
 
+- (IBAction) showNewExpenseView {
+	NSLog(@"SHOW NEW EXPENSE VIEW");
+	[[self navigationController] pushViewController:newExpenseViewController animated:YES];
+}
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
 	[self seeMonthlyExpenses];
+	UIBarButtonItem *addButton = [[[UIBarButtonItem alloc] 
+								   initWithBarButtonSystemItem:UIBarButtonSystemItemAdd 
+								   target:self 
+								   action:@selector(showNewExpenseView)] autorelease]; 
+	self.navigationItem.rightBarButtonItem = addButton;
 }
 
 -(void)viewWillAppear:(BOOL)animated{

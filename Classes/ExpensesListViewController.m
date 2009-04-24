@@ -18,7 +18,7 @@
 
 
 - (IBAction)addNewExpense {
-	[self presentModalViewController:newExpensesViewController animated:YES];
+	[self presentModalViewController:newExpenseViewController animated:YES];
 }
 
 - (IBAction)seeRatioView {
@@ -67,6 +67,7 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
+	
 }
 
 -(void)viewWillAppear:(BOOL)animated{

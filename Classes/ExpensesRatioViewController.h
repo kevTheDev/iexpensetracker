@@ -12,8 +12,8 @@
 @class ExpensesListViewController;
 
 @interface ExpensesRatioViewController : UIViewController {
-	IBOutlet ExpensesListViewController *expensesViewController;
-	IBOutlet NewExpenseViewController *newExpensesViewController;
+	IBOutlet ExpensesListViewController *expensesListViewController;
+	IBOutlet NewExpenseViewController *newExpenseViewController;
 	IBOutlet UISegmentedControl *segmentedControl;
 	IBOutlet UILabel *ratioLabel;
 	IBOutlet UILabel *necessaryLabel;
@@ -24,10 +24,13 @@
 - (IBAction)seeMonthlyExpenses;
 - (IBAction)seeWeeklyExpenses;
 - (IBAction)seeAllExpenses;
-- (IBAction)addNewExpense;
+- (IBAction)showNewExpenseView;
 
 - (void) segmentAction:(id)sender;
 - (void) setupNecessaryRatioFrame:(int)percentageNecessary;
 - (void) setupLuxuryRatioFrame:(int)percentageLuxury;
+
+@property (nonatomic, retain) IBOutlet NewExpenseViewController *newExpenseViewController;
+@property (nonatomic, retain) IBOutlet ExpensesListViewController *expensesListViewController;
 
 @end
