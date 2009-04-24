@@ -20,6 +20,7 @@
 - (IBAction) showListView;
 - (IBAction) showRatioView;
 - (IBAction) showNewExpenseView;
+- (IBAction) cancel;
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 @property (nonatomic, retain) IBOutlet UINavigationController *navigationController;

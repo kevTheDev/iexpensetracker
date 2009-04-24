@@ -17,9 +17,12 @@
 @synthesize navigationController;
 @synthesize newExpenseViewController;
 
-
+- (IBAction) cancel {
+	[navigationController popViewControllerAnimated:YES];
+}
 
 - (IBAction) showNewExpenseView {
+	self.newExpenseViewController.title = @"Add Expense";
 	[navigationController pushViewController:newExpenseViewController animated:YES];
 }
 
