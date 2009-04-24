@@ -22,6 +22,9 @@
 		DE9690FB0FA1BB8F00917C65 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DE9690FA0FA1BB8F00917C65 /* libsqlite3.dylib */; };
 		DE96911E0FA1BD9900917C65 /* dontNeedButton.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DE96911C0FA1BD9900917C65 /* dontNeedButton.jpg */; };
 		DE96911F0FA1BD9900917C65 /* needButton.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DE96911D0FA1BD9900917C65 /* needButton.jpg */; };
+		DE9691210FA1BDB900917C65 /* ExpensesRatioViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE9691200FA1BDB900917C65 /* ExpensesRatioViewController.xib */; };
+		DE9691230FA1BDD000917C65 /* NewExpenseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE9691220FA1BDD000917C65 /* NewExpenseViewController.xib */; };
+		DE9691250FA1BDE800917C65 /* ExpensesListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE9691240FA1BDE800917C65 /* ExpensesListViewController.xib */; };
 		DEBA94B10FA07B94002ED087 /* ExpensesRatioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEBA94B00FA07B94002ED087 /* ExpensesRatioViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +53,9 @@
 		DE9690FA0FA1BB8F00917C65 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		DE96911C0FA1BD9900917C65 /* dontNeedButton.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dontNeedButton.jpg; sourceTree = "<group>"; };
 		DE96911D0FA1BD9900917C65 /* needButton.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = needButton.jpg; sourceTree = "<group>"; };
+		DE9691200FA1BDB900917C65 /* ExpensesRatioViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExpensesRatioViewController.xib; sourceTree = "<group>"; };
+		DE9691220FA1BDD000917C65 /* NewExpenseViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewExpenseViewController.xib; sourceTree = "<group>"; };
+		DE9691240FA1BDE800917C65 /* ExpensesListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExpensesListViewController.xib; sourceTree = "<group>"; };
 		DEBA94AF0FA07B94002ED087 /* ExpensesRatioViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpensesRatioViewController.h; sourceTree = "<group>"; };
 		DEBA94B00FA07B94002ED087 /* ExpensesRatioViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpensesRatioViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -123,6 +129,9 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				DE9691240FA1BDE800917C65 /* ExpensesListViewController.xib */,
+				DE9691220FA1BDD000917C65 /* NewExpenseViewController.xib */,
+				DE9691200FA1BDB900917C65 /* ExpensesRatioViewController.xib */,
 				DE96911C0FA1BD9900917C65 /* dontNeedButton.jpg */,
 				DE96911D0FA1BD9900917C65 /* needButton.jpg */,
 				2899E55F0DE3E45000AC0155 /* RootViewController.xib */,
@@ -195,6 +204,9 @@
 				2899E5600DE3E45000AC0155 /* RootViewController.xib in Resources */,
 				DE96911E0FA1BD9900917C65 /* dontNeedButton.jpg in Resources */,
 				DE96911F0FA1BD9900917C65 /* needButton.jpg in Resources */,
+				DE9691210FA1BDB900917C65 /* ExpensesRatioViewController.xib in Resources */,
+				DE9691230FA1BDD000917C65 /* NewExpenseViewController.xib in Resources */,
+				DE9691250FA1BDE800917C65 /* ExpensesListViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
