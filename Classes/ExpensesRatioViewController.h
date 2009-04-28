@@ -18,6 +18,7 @@
 	IBOutlet UILabel *ratioLabel;
 	IBOutlet UILabel *necessaryLabel;
 	IBOutlet UILabel *luxuryLabel;
+	IBOutlet UILabel *changeLabel;
 }
 
 

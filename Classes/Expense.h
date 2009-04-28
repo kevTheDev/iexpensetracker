@@ -12,11 +12,14 @@
 @interface Expense : NSObject {
 	NSString *name;
 	int expense_id;
+	BOOL necessary;
+	float cost;
 }
 
 @property (nonatomic) int expense_id;
 @property (nonatomic, retain) NSString *name;
+@property (nonatomic) BOOL necessary;
+@property (nonatomic) float cost;
 
-//+ (void)initWithName:(NSString *)expense_name;
 
 @end

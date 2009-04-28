@@ -8,7 +8,6 @@
 
 #import "ExpenseDAO.h"
 #import "SQLiteAccess.h"
-#import "Expense.h"
 
 @implementation ExpenseDAO
 
@@ -249,5 +248,29 @@
 	return (totalNecessaryExpenseCosts / totalExpenses) * 100;
 }
 
++ (Expense *)lastExpenseEntered {
+	NSArray *sqlObjects = [SQLiteAccess selectManyRowsWithSQL:@"SELECT * FROM expenses ORDER BY created_at DESC LIMIT 1"];
+
+	
+	if([sqlObjects count] > 0) {
+		Expense *expense = [Expense alloc];
+	
+		NSDictionary *row = [sqlObjects objectAtIndex:0];
+		
+		expense.name = [row objectForKey:@"expense_name"];
+		expense.expense_id = [[row objectForKey:@"expense_id"] intValue];
+		expense.necessary = [[row objectForKey:@"expense_necessary"] boolValue];
+		expense.cost = [[row objectForKey:@"expense_cost"] floatValue];
+		
+		//NSLog(@"LAST NECESSARY:)
+		
+		return expense;
+	}
+	else {
+		return NULL;
+	}
+	
+}
 
 @end
+

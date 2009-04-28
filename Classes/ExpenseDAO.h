@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "Expense.h"
 
 @interface ExpenseDAO : NSObject {
 	
@@ -38,5 +38,7 @@
 + (float) lastMonthsPercentageNecessary;
 
 + (float) floatArraySummer:(NSArray *)floatArray;
+
++ (Expense *)lastExpenseEntered;
 
 @end

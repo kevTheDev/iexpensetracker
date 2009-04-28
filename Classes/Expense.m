@@ -13,9 +13,8 @@
 
 @synthesize name;
 @synthesize expense_id;
+@synthesize necessary;
+@synthesize cost;
 
-//+ (void)initWithName:(NSString *)expense_name {
-//	self.name = expense_name;
-//}
 
 @end

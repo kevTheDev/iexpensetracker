@@ -10,6 +10,7 @@
 #import "ExpenseDAO.h"
 #import "NewExpenseViewController.h"
 #import "ExpensesListViewController.h"
+#import "Expense.h"
 
 @implementation ExpensesRatioViewController
 
@@ -199,6 +200,25 @@
 -(void)viewWillAppear:(BOOL)animated{
 	[super viewWillAppear:animated];
 	[self seeMonthlyExpenses];
+	
+	Expense *lastExpense = [ExpenseDAO lastExpenseEntered];
+	if(lastExpense != NULL) {
+	
+		if(lastExpense.necessary == YES){
+			NSLog(@"LAST EXPENSE NECESSARY: %f", lastExpense.cost);
+			NSString *changeString = [NSString stringWithFormat:@"+ £%f", lastExpense.cost];
+			[changeLabel setText:changeString];
+			changeLabel.textColor = necessaryLabel.backgroundColor;
+
+		}
+		else {
+			NSLog(@"LAST EXPENSE LUXURY: %f", lastExpense.cost);
+			NSString *changeString = [NSString stringWithFormat:@"- £%f", lastExpense.cost];
+			[changeLabel setText:changeString];
+			changeLabel.textColor = luxuryLabel.backgroundColor;
+		}
+	}
+		
 }
 
 /*
