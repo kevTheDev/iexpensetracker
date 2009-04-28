@@ -82,11 +82,13 @@
     NSString *necessaryLabelString = [NSString stringWithFormat:@"%@ £%@", percentageNecessaryString, totalNecessaryExpensesString];
 	NSString *luxuryLabelString = [NSString stringWithFormat:@"%@ £%@", percentageLuxuryString, totalLuxuryExpensesString];										  
 	
+	[self setupNecessaryRatioFrame:percentageNecessary];
+	[self setupLuxuryRatioFrame:percentageLuxury];
+	
 	[necessaryLabel setText:necessaryLabelString];
 	[luxuryLabel setText:luxuryLabelString];
     
-	[self setupNecessaryRatioFrame:percentageNecessary];
-	[self setupLuxuryRatioFrame:percentageLuxury];
+	
 	
 	return;
 }
@@ -115,11 +117,13 @@
     NSString *necessaryLabelString = [NSString stringWithFormat:@"%@ £%@", percentageNecessaryString, totalNecessaryExpensesString];
 	NSString *luxuryLabelString = [NSString stringWithFormat:@"%@ £%@", percentageLuxuryString, totalLuxuryExpensesString];										  
 	
+	[self setupNecessaryRatioFrame:percentageNecessary];
+	[self setupLuxuryRatioFrame:percentageLuxury];
+	
 	[necessaryLabel setText:necessaryLabelString];
 	[luxuryLabel setText:luxuryLabelString];
     
-	[self setupNecessaryRatioFrame:percentageNecessary];
-	[self setupLuxuryRatioFrame:percentageLuxury];
+	
 		
 	return;
 	
@@ -152,11 +156,13 @@
     NSString *necessaryLabelString = [NSString stringWithFormat:@"%@ £%@", percentageNecessaryString, totalNecessaryExpensesString];
 	NSString *luxuryLabelString = [NSString stringWithFormat:@"%@ £%@", percentageLuxuryString, totalLuxuryExpensesString];										  
 	
+	[self setupNecessaryRatioFrame:percentageNecessary];
+	[self setupLuxuryRatioFrame:percentageLuxury];
+	
 	[necessaryLabel setText:necessaryLabelString];
 	[luxuryLabel setText:luxuryLabelString];
     
-	[self setupNecessaryRatioFrame:percentageNecessary];
-	[self setupLuxuryRatioFrame:percentageLuxury];
+	
     
 	return;
 	

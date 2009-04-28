@@ -29,6 +29,7 @@
 		DE9D7B8F0FA1BF7E00052CBC /* expenses.db in Resources */ = {isa = PBXBuildFile; fileRef = DE9D7B8E0FA1BF7E00052CBC /* expenses.db */; };
 		DEBA94B10FA07B94002ED087 /* ExpensesRatioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEBA94B00FA07B94002ED087 /* ExpensesRatioViewController.m */; };
 		DECA210F0FA212E80037359B /* Expense.m in Sources */ = {isa = PBXBuildFile; fileRef = DECA210E0FA212E80037359B /* Expense.m */; };
+		DEEAF56B0FA790570021E171 /* GlossyLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = DEEAF56A0FA790570021E171 /* GlossyLabel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +66,8 @@
 		DEBA94B00FA07B94002ED087 /* ExpensesRatioViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpensesRatioViewController.m; sourceTree = "<group>"; };
 		DECA210D0FA212E80037359B /* Expense.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Expense.h; sourceTree = "<group>"; };
 		DECA210E0FA212E80037359B /* Expense.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Expense.m; sourceTree = "<group>"; };
+		DEEAF5690FA790570021E171 /* GlossyLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlossyLabel.h; sourceTree = "<group>"; };
+		DEEAF56A0FA790570021E171 /* GlossyLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlossyLabel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +104,8 @@
 				DE9690980FA1B8DA00917C65 /* NewExpenseViewController.m */,
 				DECA210D0FA212E80037359B /* Expense.h */,
 				DECA210E0FA212E80037359B /* Expense.m */,
+				DEEAF5690FA790570021E171 /* GlossyLabel.h */,
+				DEEAF56A0FA790570021E171 /* GlossyLabel.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -239,6 +244,7 @@
 				DE9690620FA1B89B00917C65 /* ExpenseDAO.m in Sources */,
 				DE9690990FA1B8DA00917C65 /* NewExpenseViewController.m in Sources */,
 				DECA210F0FA212E80037359B /* Expense.m in Sources */,
+				DEEAF56B0FA790570021E171 /* GlossyLabel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,17 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GlossyLabel.h"
 
 @class NewExpenseViewController;
 @class ExpensesListViewController;
+@class GlossyLabel;
 
 @interface ExpensesRatioViewController : UIViewController {
 	IBOutlet ExpensesListViewController *expensesListViewController;
 	IBOutlet NewExpenseViewController *newExpenseViewController;
 	IBOutlet UISegmentedControl *segmentedControl;
-	IBOutlet UILabel *ratioLabel;
-	IBOutlet UILabel *necessaryLabel;
-	IBOutlet UILabel *luxuryLabel;
+	IBOutlet GlossyLabel *ratioLabel;
+	IBOutlet GlossyLabel *necessaryLabel;
+	IBOutlet GlossyLabel *luxuryLabel;
 	IBOutlet UILabel *changeLabel;
 }
 
