@@ -24,9 +24,9 @@
 	
 	if (editingStyle == UITableViewCellEditingStyleDelete) {
 		
-		//[expenses removeObjectAtIndex:indexPath.row];
+		[expenses removeObjectAtIndex:indexPath.row];
 		
-		//[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+		[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
 	}
 	[tableView endUpdates];
 	//[tv reloadData];
