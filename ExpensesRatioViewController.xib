@@ -8,7 +8,7 @@
 		<string key="IBDocument.HIToolboxVersion">353.00</string>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="48"/>
+			<integer value="51"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -132,6 +132,11 @@
 								<int key="IBUIStyle">1</int>
 								<reference key="IBUIToolbar" ref="48545980"/>
 							</object>
+							<object class="IBUIBarButtonItem" id="142682885">
+								<string key="IBUITitle">Feeback</string>
+								<int key="IBUIStyle">1</int>
+								<reference key="IBUIToolbar" ref="48545980"/>
+							</object>
 						</object>
 					</object>
 					<object class="IBUILabel" id="756847811">
@@ -248,6 +253,14 @@
 					</object>
 					<int key="connectionID">49</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">sendFeeback</string>
+						<reference key="source" ref="142682885"/>
+						<reference key="destination" ref="372490531"/>
+					</object>
+					<int key="connectionID">52</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -279,8 +292,8 @@
 							<reference ref="783609660"/>
 							<reference ref="824169378"/>
 							<reference ref="332139730"/>
-							<reference ref="48545980"/>
 							<reference ref="756847811"/>
+							<reference ref="48545980"/>
 						</object>
 						<reference key="parent" ref="360949347"/>
 					</object>
@@ -310,6 +323,7 @@
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="84540306"/>
+							<reference ref="142682885"/>
 						</object>
 						<reference key="parent" ref="1003466480"/>
 					</object>
@@ -327,6 +341,11 @@
 						<int key="objectID">48</int>
 						<reference key="object" ref="756847811"/>
 						<reference key="parent" ref="1003466480"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">51</int>
+						<reference key="object" ref="142682885"/>
+						<reference key="parent" ref="48545980"/>
 					</object>
 				</object>
 			</object>
@@ -348,6 +367,7 @@
 					<string>41.IBEditorWindowLastContentRect</string>
 					<string>41.IBPluginDependency</string>
 					<string>48.IBPluginDependency</string>
+					<string>51.IBPluginDependency</string>
 					<string>8.IBEditorWindowLastContentRect</string>
 					<string>8.IBPluginDependency</string>
 				</object>
@@ -367,7 +387,8 @@
 					<string>{{0, 365}, {320, 480}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-					<string>{{786, 404}, {320, 421}}</string>
+					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+					<string>{{948, 373}, {320, 421}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				</object>
 			</object>
@@ -391,7 +412,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">49</int>
+			<int key="maxID">52</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -432,11 +453,13 @@
 							<string>seeMonthlyExpenses</string>
 							<string>seeWeeklyExpenses</string>
 							<string>segmentAction:</string>
+							<string>sendFeeback</string>
 							<string>showListView</string>
 							<string>showNewExpenseView</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>

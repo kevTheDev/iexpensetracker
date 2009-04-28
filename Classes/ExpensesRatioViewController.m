@@ -252,5 +252,10 @@
     [super dealloc];
 }
 
+- (IBAction)sendFeeback {
+	NSString *url = [NSString stringWithString: @"mailto:kev.j.edwards@gmail.com?subject=Expenses%20Feeback"];
+	[[UIApplication sharedApplication] openURL: [NSURL URLWithString: url]];
+
+}
 
 @end

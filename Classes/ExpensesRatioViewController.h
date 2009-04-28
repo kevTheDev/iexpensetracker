@@ -28,6 +28,7 @@
 
 - (IBAction)showListView;
 - (IBAction)showNewExpenseView;
+- (IBAction)sendFeeback;
 
 - (void) segmentAction:(id)sender;
 - (void) setupNecessaryRatioFrame:(int)percentageNecessary;
