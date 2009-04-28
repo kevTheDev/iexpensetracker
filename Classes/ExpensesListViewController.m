@@ -24,6 +24,9 @@
 	
 	if (editingStyle == UITableViewCellEditingStyleDelete) {
 		
+		Expense *expense = [expenses objectAtIndex:indexPath.row];
+		[ExpenseDAO deleteExpense:[expense expense_id]];
+		
 		[expenses removeObjectAtIndex:indexPath.row];
 		
 		[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
