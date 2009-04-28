@@ -12,8 +12,6 @@
 
 @implementation NewExpenseViewController
 
-@synthesize costTextField;
-@synthesize nameTextField;
 @synthesize expensesListViewController;
 
 - (IBAction)backgroundClick:(id)sender {
@@ -21,6 +19,7 @@
 	[nameTextField resignFirstResponder];	
 }
 
+// THE FOLLOWING TWO METHODS SEEM TO BE TRYING TO ACHIEVE THE SAME THING
 - (void)textFieldDidEndEditing:(UITextField *)textField {
 	
 	if(textField.tag == 1) {		
@@ -82,6 +81,47 @@
 	self.title = @"Add Expense";
 }
 
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+	NSNumberFormatter *currencyFormatter = [[NSNumberFormatter alloc] init];
+	[currencyFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+	int currencyScale = [currencyFormatter maximumFractionDigits];
+	NSString *currentText = [textField text];
+	NSNumber *currentValueNumber = [currencyFormatter numberFromString:currentText];
+	NSLog(@"CURRENT TEXT: %@", [textField text]);
+    float currentValue = [currentValueNumber floatValue];
+	float newValue = [string floatValue];
+
+	float finalValue = (currentValue * 10) + (newValue / 100);
+	
+	NSLog(@"CURRENT VALUE: %f", currentValue);
+	NSLog(@"NEW VALUE: %f", newValue);
+	NSLog(@"FINAL VALUE: %f", finalValue);
+	
+	//float number = 	
+	NSNumber *result = [NSNumber numberWithFloat:finalValue];
+	
+	//NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+	//[numberFormatter setFormatterBehavior:NSNumberFormatterBehavior10_4];
+	//[numberFormatter setDecimalSeparator:@","];
+	//[numberFormatter setFormat:@"0.00;0.00;-0.00"];
+	
+	NSString *resultText = [currencyFormatter stringFromNumber:result];
+	NSLog(@"Result: %@", resultText);
+
+	[textField setText:resultText];// = resultText;
+	
+	//NSDecimal *number = (NSDecimal)	[text floatValue];
+//	[currencyFormatter stringFromNumber
+	
+	
+	//if(text.count == 1)
+//	{
+//		NSLog(@"NEW TEXT: %@", 
+//	}
+//	
+	return NO;
+}
 
 /*
  // Override to allow orientations other than the default portrait orientation.

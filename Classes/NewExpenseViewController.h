@@ -17,8 +17,6 @@
 	IBOutlet ExpensesListViewController *expensesListViewController;
 }
 
-@property (nonatomic, retain) IBOutlet UITextField *costTextField;
-@property (nonatomic, retain) IBOutlet UITextField *nameTextField;
 @property (nonatomic, retain) IBOutlet ExpensesListViewController *expensesListViewController;
 
 - (IBAction)cancel;
@@ -27,6 +25,6 @@
 - (IBAction)backgroundClick:(id)sender;
 
 - (void)textFieldDidEndEditing:(UITextField *)textField;
-
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string;
 
 @end
