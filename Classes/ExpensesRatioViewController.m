@@ -59,11 +59,17 @@
 
 - (IBAction)seeMonthlyExpenses {
 	NSLog(@"MONTH PRESSED");
-	int percentageNecessary = [ExpenseDAO lastMonthsPercentageNecessary];
-	int percentageLuxury = 100 - percentageNecessary;
+	float percentageNecessary = [ExpenseDAO lastMonthsPercentageNecessary];
+	float percentageLuxury = 100 - percentageNecessary;
 	
-	NSString *percentageNecessaryString = [NSString stringWithFormat:@"%d%%", percentageNecessary];
-	NSString *percentageLuxuryString = [NSString stringWithFormat:@"%d%%", percentageLuxury];
+	NSLog(@"NEC: %f%", percentageNecessary);
+	NSLog(@"LUX: %f%", percentageLuxury);
+	
+	NSString *realPercentageNecessary = [ExpenseDAO roundedNumber:percentageNecessary];
+	NSString *realPercentageLuxury = [ExpenseDAO roundedNumber:percentageLuxury];
+		
+	NSString *percentageNecessaryString = [NSString stringWithFormat:@"%@%%", realPercentageNecessary];
+	NSString *percentageLuxuryString = [NSString stringWithFormat:@"%@%%", realPercentageLuxury];
 	
 	float totalNecessaryExpenseCosts = [ExpenseDAO lastMonthsTotalNecessaryExpenseCosts];
     NSString *totalNecessaryExpensesString = [ExpenseDAO roundedNumber:totalNecessaryExpenseCosts];
@@ -86,11 +92,11 @@
 
 - (IBAction)seeWeeklyExpenses {
 	NSLog(@"WEEK PRESSED");
-	int percentageNecessary = [ExpenseDAO lastWeeksPercentageNecessary];
-	int percentageLuxury = 100 - percentageNecessary;
+	float percentageNecessary = [ExpenseDAO lastWeeksPercentageNecessary];
+	float percentageLuxury = 100 - percentageNecessary;
 	
-	NSString *percentageNecessaryString = [NSString stringWithFormat:@"%d%%", percentageNecessary];
-	NSString *percentageLuxuryString = [NSString stringWithFormat:@"%d%%", percentageLuxury];
+	NSString *percentageNecessaryString = [NSString stringWithFormat:@"%f%%", percentageNecessary];
+	NSString *percentageLuxuryString = [NSString stringWithFormat:@"%f%%", percentageLuxury];
 	
 	float totalNecessaryExpenseCosts = [ExpenseDAO lastWeeksTotalNecessaryExpenseCosts];
     NSString *totalNecessaryExpensesString = [ExpenseDAO roundedNumber:totalNecessaryExpenseCosts];
@@ -114,13 +120,13 @@
 
 - (IBAction)seeAllExpenses {
 	
-	int percentageNecessary = [ExpenseDAO percentageNecessary];
-	int percentageLuxury = 100 - percentageNecessary;
+	float percentageNecessary = [ExpenseDAO percentageNecessary];
+	float percentageLuxury = 100 - percentageNecessary;
 	
-    NSLog(@"ALL PRESSED '%d'", percentageNecessary);
+    NSLog(@"ALL PRESSED '%f'", percentageNecessary);
 	
-	NSString *percentageNecessaryString = [NSString stringWithFormat:@"%d%%", percentageNecessary];
-	NSString *percentageLuxuryString = [NSString stringWithFormat:@"%d%%", percentageLuxury];
+	NSString *percentageNecessaryString = [NSString stringWithFormat:@"%f%%", percentageNecessary];
+	NSString *percentageLuxuryString = [NSString stringWithFormat:@"%f%%", percentageLuxury];
 	
 	float totalNecessaryExpenseCosts = [ExpenseDAO totalNecessaryExpenseCosts];
     NSString *totalNecessaryExpensesString = [ExpenseDAO roundedNumber:totalNecessaryExpenseCosts];

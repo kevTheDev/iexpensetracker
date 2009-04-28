@@ -100,7 +100,7 @@
 }
 
 
-+ (int)percentageNecessary {
++ (float)percentageNecessary {
 	
 	float totalNecessaryExpenseCosts = [ExpenseDAO totalNecessaryExpenseCosts];
 	float totalLuxuryExpenseCosts = [ExpenseDAO totalLuxuryExpenseCosts];
@@ -184,7 +184,7 @@
 	return [SQLiteAccess selectManyValuesWithSQL:queryString];
 }
 
-+ (int) lastWeeksPercentageNecessary {
++ (float) lastWeeksPercentageNecessary {
 	float totalNecessaryExpenseCosts = [ExpenseDAO lastWeeksTotalNecessaryExpenseCosts];
 	float totalLuxuryExpenseCosts = [ExpenseDAO lastWeeksTotalLuxuryExpenseCosts];
 	
@@ -235,16 +235,16 @@
 	return [SQLiteAccess selectManyValuesWithSQL:queryString];
 }
 
-+ (int) lastMonthsPercentageNecessary {
++ (float) lastMonthsPercentageNecessary {
 	float totalNecessaryExpenseCosts = [ExpenseDAO lastMonthsTotalNecessaryExpenseCosts];
 	float totalLuxuryExpenseCosts = [ExpenseDAO lastMonthsTotalLuxuryExpenseCosts];
 	
-	//NSLog(@"Total necessary expenses: %f", totalNecessaryExpenseCosts);
-	//NSLog(@"Total luxury expenses: %f", totalLuxuryExpenseCosts);
+	NSLog(@"Total necessary expenses: %f", totalNecessaryExpenseCosts);
+	NSLog(@"Total luxury expenses: %f", totalLuxuryExpenseCosts);
 	
 	float totalExpenses = totalNecessaryExpenseCosts + totalLuxuryExpenseCosts;
 	
-	//NSLog(@"Total expenses: %f", totalExpenses);
+	NSLog(@"Total expenses: %f", totalExpenses);
 	
 	return (totalNecessaryExpenseCosts / totalExpenses) * 100;
 }

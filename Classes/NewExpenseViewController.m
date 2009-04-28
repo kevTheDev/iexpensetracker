@@ -54,16 +54,33 @@
 - (void) addNecessaryExpense {
 	NSLog (@"add necessary expense");
 	
-	NSString *sql = [NSString stringWithFormat:@"INSERT INTO expenses (expense_name, expense_cost, expense_necessary, created_at) VALUES ('%@', %f, 1, current_timestamp)", [nameTextField text], [[costTextField text] floatValue]];
+	NSNumberFormatter *currencyFormatter = [[NSNumberFormatter alloc] init];
+	[currencyFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+	NSString *currentText = [costTextField text];
+	NSNumber *currentValueNumber = [currencyFormatter numberFromString:currentText];
+	NSLog(@"ADD FLOAT: %f", [currentValueNumber floatValue]);
+	
+	
+	NSString *sql = [NSString stringWithFormat:@"INSERT INTO expenses (expense_name, expense_cost, expense_necessary, created_at) VALUES ('%@', %f, 1, current_timestamp)", [nameTextField text], [currentValueNumber floatValue]];
 	
 	[SQLiteAccess insertWithSQL:sql];
+	[currencyFormatter release];
 	[[self navigationController] popViewControllerAnimated:YES];
 }
 
 - (void) addUnnecessaryExpense {
 	NSLog (@"add unnecessary expense");
-	NSString *sql = [NSString stringWithFormat:@"INSERT INTO expenses (expense_name, expense_cost, expense_necessary, created_at) VALUES ('%@', %f, 0, current_timestamp)", [nameTextField text], [[costTextField text] floatValue]];
+	
+	NSNumberFormatter *currencyFormatter = [[NSNumberFormatter alloc] init];
+	[currencyFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+	NSString *currentText = [costTextField text];
+	NSNumber *currentValueNumber = [currencyFormatter numberFromString:currentText];
+	NSLog(@"ADD FLOAT: %f", [currentValueNumber floatValue]);
+	
+	
+	NSString *sql = [NSString stringWithFormat:@"INSERT INTO expenses (expense_name, expense_cost, expense_necessary, created_at) VALUES ('%@', %f, 0, current_timestamp)", [nameTextField text], [currentValueNumber floatValue]];
 	[SQLiteAccess insertWithSQL:sql];
+	[currencyFormatter release];
 	[[self navigationController] popViewControllerAnimated:YES];
 	
 }
@@ -83,19 +100,38 @@
 
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+	
+	if(textField.tag == 2) {
+		return YES;
+	}
+		
+	
 	NSNumberFormatter *currencyFormatter = [[NSNumberFormatter alloc] init];
 	[currencyFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
-	int currencyScale = [currencyFormatter maximumFractionDigits];
 	NSString *currentText = [textField text];
 	NSNumber *currentValueNumber = [currencyFormatter numberFromString:currentText];
 	NSLog(@"CURRENT TEXT: %@", [textField text]);
-    float currentValue = [currentValueNumber floatValue];
-	float newValue = [string floatValue];
-
-	float finalValue = (currentValue * 10) + (newValue / 100);
 	
+	NSLog(@"stringEntered: %@", string);
+	
+	float currentValue = [currentValueNumber floatValue];
 	NSLog(@"CURRENT VALUE: %f", currentValue);
-	NSLog(@"NEW VALUE: %f", newValue);
+	
+	float finalValue = 0.0;
+	
+	if(string.length == 0) {
+		NSLog(@"DELETE");
+		finalValue = (currentValue / 10);
+	}
+	else {
+    
+		float newValue = [string floatValue];
+		NSLog(@"NEW VALUE: %f", newValue);
+		finalValue = (currentValue * 10) + (newValue / 100);
+	}
+	
+	
+	
 	NSLog(@"FINAL VALUE: %f", finalValue);
 	
 	//float number = 	
@@ -107,6 +143,7 @@
 	//[numberFormatter setFormat:@"0.00;0.00;-0.00"];
 	
 	NSString *resultText = [currencyFormatter stringFromNumber:result];
+	//NSString *resultText = [NSString stringWithFormat:@"%f", [result floatValue]];
 	NSLog(@"Result: %@", resultText);
 
 	[textField setText:resultText];// = resultText;
@@ -119,7 +156,7 @@
 //	{
 //		NSLog(@"NEW TEXT: %@", 
 //	}
-//	
+    [currencyFormatter release];
 	return NO;
 }
 

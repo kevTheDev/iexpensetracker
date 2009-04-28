@@ -22,20 +22,20 @@
 + (NSArray *)fetchUnnecessaryExpenseCosts;
 + (float) totalNecessaryExpenseCosts;
 + (float) totalLuxuryExpenseCosts;
-+ (int) percentageNecessary;
++ (float) percentageNecessary;
 + (NSString *)roundedNumber:(float)numberToRound;
 
 + (float) lastWeeksTotalNecessaryExpenseCosts;
 + (float) lastWeeksTotalLuxuryExpenseCosts;	
 + (NSArray *)fetchLastWeeksNecessaryExpenseCosts;
 + (NSArray *)fetchLastWeeksLuxuryExpenseCosts;
-+ (int) lastWeeksPercentageNecessary;
++ (float) lastWeeksPercentageNecessary;
 
 + (float) lastMonthsTotalNecessaryExpenseCosts;
 + (float) lastMonthsTotalLuxuryExpenseCosts;
 + (NSArray *)fetchLastMonthsNecessaryExpenseCosts;
 + (NSArray *)fetchLastMonthsLuxuryExpenseCosts;
-+ (int) lastMonthsPercentageNecessary;
++ (float) lastMonthsPercentageNecessary;
 
 + (float) floatArraySummer:(NSArray *)floatArray;
 
