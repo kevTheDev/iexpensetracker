@@ -15,47 +15,48 @@
 
 @implementation ExpensesListViewController
 
-@synthesize expensesArray;
+@synthesize expenses;
 
-- (void)tableView:(UITableView *)tv commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath { 
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath { 
 	
-	[tv beginUpdates];
+	[tableView beginUpdates];
 	
 	
 	if (editingStyle == UITableViewCellEditingStyleDelete) {
 		
 		//[expenses removeObjectAtIndex:indexPath.row];
 		
-		[tv deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+		//[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
 	}
-	[tv endUpdates];
-	[tv reloadData];
+	[tableView endUpdates];
+	//[tv reloadData];
 } 
 
 
-- (UITableViewCell *)tableView:(UITableView *)tv cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 	static NSString *CellIdentifier = @"Expense"; 
 	UITableViewCell *cell = 
-	[tv dequeueReusableCellWithIdentifier:CellIdentifier]; 
+	[tableView dequeueReusableCellWithIdentifier:CellIdentifier]; 
 	if (cell == nil) { 
 		cell = [[[UITableViewCell alloc]  
 				 initWithFrame:CGRectZero 
 				 reuseIdentifier:CellIdentifier] autorelease]; 
 	}
-	
-	//expensesArray = [ExpenseDAO fetchExpenses];
-	Expense *expense = [[self expensesArray] objectAtIndex:indexPath.row];
-	
-	cell.text = [expense name];
+
+	cell.text = [[expenses objectAtIndex:indexPath.row] name];
+	//cell.text = @"Hello";
 	return cell; 
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-	//NSArray *expensesArray = [ExpenseDAO fetchExpenses];
+//	return self.expensesArray.count;
 	//return [expensesArray count];
-	//return [ExpenseDAO expensesCount];
-	//return [[self expensesArray] count];
-	return self.expensesArray.count;
+	//return [[ExpenseDAO fetchExpenses] count];
+	NSLog(@"Expenses Count: %d", [expenses count]);
+
+	return [expenses count];
+	//return 1;
+	
 }
 
 
@@ -76,27 +77,18 @@
  */
 
 - (IBAction) showNewExpenseView {
-	NSLog(@"SHOW NEW EXPENSE VIEW");
 	[[self navigationController] pushViewController:newExpenseViewController animated:YES];
 }
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-	UIBarButtonItem *addButton = [[[UIBarButtonItem alloc] 
-								   initWithBarButtonSystemItem:UIBarButtonSystemItemAdd 
-								   target:self 
-								   action:@selector(showNewExpenseView)] autorelease]; 
-	self.navigationItem.rightBarButtonItem = addButton;
 	self.navigationItem.rightBarButtonItem = self.editButtonItem;
 	self.title = @"Expenses";
-	self.expensesArray = [ExpenseDAO fetchExpenses];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-	[super viewWillAppear:animated];
-	
-	[tableView reloadData];
+	[super viewWillAppear:animated];	
 }
 
 /*
@@ -107,17 +99,25 @@
  }
  */
 
+- (id)initWithCoder:(NSCoder *)coder { 
+	if (self = [super initWithCoder:coder]) { 
+		self.expenses = [NSMutableArray arrayWithArray:[ExpenseDAO fetchExpenses]];					  
+	} 
+	return self; 
+} 
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning]; // Releases the view if it doesn't have a superview
     // Release anything that's not essential, such as cached data
+	NSLog(@"MEM WARNING");
 }
 
 
 - (void)dealloc {
 	[newExpenseViewController release];
 	[expensesRatioViewController release];
-	[expensesArray release];
+	[expenses release];
     [super dealloc];
 }
 

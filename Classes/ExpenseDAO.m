@@ -26,7 +26,6 @@
 
 + (NSArray *)fetchExpenses {
 	
-	
 	NSArray *sqlObjects = [SQLiteAccess selectManyRowsWithSQL:@"SELECT * FROM expenses"];
 	NSMutableArray *expenses = [NSMutableArray arrayWithCapacity:[sqlObjects count]];
 	
@@ -106,12 +105,12 @@
 	float totalNecessaryExpenseCosts = [ExpenseDAO totalNecessaryExpenseCosts];
 	float totalLuxuryExpenseCosts = [ExpenseDAO totalLuxuryExpenseCosts];
 	
-	NSLog(@"Total necessary expenses: %f", totalNecessaryExpenseCosts);
-	NSLog(@"Total luxury expenses: %f", totalLuxuryExpenseCosts);
+	//NSLog(@"Total necessary expenses: %f", totalNecessaryExpenseCosts);
+	//NSLog(@"Total luxury expenses: %f", totalLuxuryExpenseCosts);
 	
 	float totalExpenses = totalNecessaryExpenseCosts + totalLuxuryExpenseCosts;
 	
-	NSLog(@"Total expenses: %f", totalExpenses);
+	//NSLog(@"Total expenses: %f", totalExpenses);
 	
 	return (totalNecessaryExpenseCosts / totalExpenses) * 100;
 	
@@ -156,10 +155,10 @@
 	NSString *weekAgoString = [dateFormatter stringFromDate:aWeekAgo];
 	
 	//NSLog(@"Today: %@", todayString);
-	NSLog(@"A week ago: %@", weekAgoString);
+	//NSLog(@"A week ago: %@", weekAgoString);
 	NSString *queryString = [NSString stringWithFormat:@"SELECT expense_cost FROM expenses WHERE expense_necessary = 1 AND created_at >= '%@'", weekAgoString];
 	
-	NSLog(@"QUERY STRING: %@", queryString);
+	//NSLog(@"QUERY STRING: %@", queryString);
 	
 	return [SQLiteAccess selectManyValuesWithSQL:queryString];
 }
@@ -177,10 +176,10 @@
 	NSString *weekAgoString = [dateFormatter stringFromDate:aWeekAgo];
 	
 	//NSLog(@"Today: %@", todayString);
-	NSLog(@"A week ago: %@", weekAgoString);
+	//NSLog(@"A week ago: %@", weekAgoString);
 	NSString *queryString = [NSString stringWithFormat:@"SELECT expense_cost FROM expenses WHERE expense_necessary = 0 AND created_at >= '%@'", weekAgoString];
 	
-	NSLog(@"QUERY STRING: %@", queryString);
+	//NSLog(@"QUERY STRING: %@", queryString);
 	
 	return [SQLiteAccess selectManyValuesWithSQL:queryString];
 }
@@ -189,12 +188,12 @@
 	float totalNecessaryExpenseCosts = [ExpenseDAO lastWeeksTotalNecessaryExpenseCosts];
 	float totalLuxuryExpenseCosts = [ExpenseDAO lastWeeksTotalLuxuryExpenseCosts];
 	
-	NSLog(@"Total necessary expenses: %f", totalNecessaryExpenseCosts);
-	NSLog(@"Total luxury expenses: %f", totalLuxuryExpenseCosts);
+	//NSLog(@"Total necessary expenses: %f", totalNecessaryExpenseCosts);
+	//NSLog(@"Total luxury expenses: %f", totalLuxuryExpenseCosts);
 	
 	float totalExpenses = totalNecessaryExpenseCosts + totalLuxuryExpenseCosts;
 	
-	NSLog(@"Total expenses: %f", totalExpenses);
+	//NSLog(@"Total expenses: %f", totalExpenses);
 	
 	return (totalNecessaryExpenseCosts / totalExpenses) * 100;
 }
@@ -209,10 +208,10 @@
 	
 	NSString *aMonthAgoString = [dateFormatter stringFromDate:aMonthAgo];
 	
-	NSLog(@"A month ago: %@", aMonthAgoString);
+	//NSLog(@"A month ago: %@", aMonthAgoString);
 	NSString *queryString = [NSString stringWithFormat:@"SELECT expense_cost FROM expenses WHERE expense_necessary = 1 AND created_at >= '%@'", aMonthAgoString];
 	
-	NSLog(@"QUERY STRING: %@", queryString);
+	//NSLog(@"QUERY STRING: %@", queryString);
 	
 	return [SQLiteAccess selectManyValuesWithSQL:queryString];
 	
@@ -228,10 +227,10 @@
 	
 	NSString *aMonthAgoString = [dateFormatter stringFromDate:aMonthAgo];
 	
-	NSLog(@"A month ago: %@", aMonthAgoString);
+	//NSLog(@"A month ago: %@", aMonthAgoString);
 	NSString *queryString = [NSString stringWithFormat:@"SELECT expense_cost FROM expenses WHERE expense_necessary = 0 AND created_at >= '%@'", aMonthAgoString];
 	
-	NSLog(@"QUERY STRING: %@", queryString);
+	//NSLog(@"QUERY STRING: %@", queryString);
 	
 	return [SQLiteAccess selectManyValuesWithSQL:queryString];
 }
@@ -240,12 +239,12 @@
 	float totalNecessaryExpenseCosts = [ExpenseDAO lastMonthsTotalNecessaryExpenseCosts];
 	float totalLuxuryExpenseCosts = [ExpenseDAO lastMonthsTotalLuxuryExpenseCosts];
 	
-	NSLog(@"Total necessary expenses: %f", totalNecessaryExpenseCosts);
-	NSLog(@"Total luxury expenses: %f", totalLuxuryExpenseCosts);
+	//NSLog(@"Total necessary expenses: %f", totalNecessaryExpenseCosts);
+	//NSLog(@"Total luxury expenses: %f", totalLuxuryExpenseCosts);
 	
 	float totalExpenses = totalNecessaryExpenseCosts + totalLuxuryExpenseCosts;
 	
-	NSLog(@"Total expenses: %f", totalExpenses);
+	//NSLog(@"Total expenses: %f", totalExpenses);
 	
 	return (totalNecessaryExpenseCosts / totalExpenses) * 100;
 }

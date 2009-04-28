@@ -11,12 +11,10 @@
 @class NewExpenseViewController;
 @class ExpensesRatioViewController;
 
-@interface ExpensesListViewController : UITableViewController <UITableViewDataSource> {
+@interface ExpensesListViewController : UITableViewController {
 	IBOutlet NewExpenseViewController *newExpenseViewController;
-	IBOutlet ExpensesRatioViewController *expensesRatioViewController;
-	IBOutlet UITableView *tableView;
-	
-	NSArray *expensesArray;
+	IBOutlet ExpensesRatioViewController *expensesRatioViewController;	
+	NSMutableArray *expenses;
 }
 
 - (IBAction)showNewExpenseView;
@@ -25,7 +23,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section;
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath;
 
-@property (nonatomic, retain) NSArray *expensesArray;
+@property (nonatomic, retain) NSMutableArray *expenses;
 
 @end
 
