@@ -46,7 +46,7 @@
 				 reuseIdentifier:CellIdentifier] autorelease]; 
 	}
 
-	cell.text = [[expenses objectAtIndex:indexPath.row] name];
+	cell.text = [[self.expenses objectAtIndex:indexPath.row] name];
 	//cell.text = @"Hello";
 	return cell; 
 }
@@ -55,9 +55,9 @@
 //	return self.expensesArray.count;
 	//return [expensesArray count];
 	//return [[ExpenseDAO fetchExpenses] count];
-	NSLog(@"Expenses Count: %d", [expenses count]);
+	NSLog(@"Expenses Count: %d", [self.expenses count]);
 
-	return [expenses count];
+	return [self.expenses count];
 	//return 1;
 	
 }
@@ -94,6 +94,7 @@
 -(void)viewWillAppear:(BOOL)animated{
 	[super viewWillAppear:animated];
 	self.expenses = [NSMutableArray arrayWithArray:[ExpenseDAO fetchExpenses]];
+	self.tableView.reloadData;
 }
 
 /*
