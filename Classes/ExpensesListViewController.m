@@ -88,10 +88,12 @@
     [super viewDidLoad];
 	self.navigationItem.rightBarButtonItem = self.editButtonItem;
 	self.title = @"Expenses";
+	
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-	[super viewWillAppear:animated];	
+	[super viewWillAppear:animated];
+	self.expenses = [NSMutableArray arrayWithArray:[ExpenseDAO fetchExpenses]];
 }
 
 /*
@@ -102,12 +104,12 @@
  }
  */
 
-- (id)initWithCoder:(NSCoder *)coder { 
-	if (self = [super initWithCoder:coder]) { 
-		self.expenses = [NSMutableArray arrayWithArray:[ExpenseDAO fetchExpenses]];					  
-	} 
-	return self; 
-} 
+//- (id)initWithCoder:(NSCoder *)coder { 
+//	if (self = [super initWithCoder:coder]) { 
+//		self.expenses = [NSMutableArray arrayWithArray:[ExpenseDAO fetchExpenses]];					  
+//	} 
+//	return self; 
+//} 
 
 
 - (void)didReceiveMemoryWarning {
