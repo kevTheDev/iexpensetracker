@@ -228,6 +228,9 @@
 			changeLabel.textColor = luxuryLabel.backgroundColor;
 		}
 	}
+	else {
+		[changeLabel setText:@"There are no expenses"];
+	}
 		
 }
 
