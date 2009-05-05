@@ -37,8 +37,8 @@
 		
 		expense.name = [row objectForKey:@"expense_name"];
 		expense.expense_id = [[row objectForKey:@"expense_id"] intValue];
-		
-		
+		expense.necessary = [[row objectForKey:@"expense_necessary"] boolValue];
+		expense.cost = [[row objectForKey:@"expense_cost"] floatValue];
 		
 		[expenses addObject:expense];
 		[expense release];

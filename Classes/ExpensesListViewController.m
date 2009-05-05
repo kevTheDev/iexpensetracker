@@ -46,8 +46,21 @@
 				 reuseIdentifier:CellIdentifier] autorelease]; 
 	}
 
-	cell.text = [[self.expenses objectAtIndex:indexPath.row] name];
-	//cell.text = @"Hello";
+
+	Expense *expense = [self.expenses objectAtIndex:indexPath.row];
+	
+	NSNumberFormatter *currencyFormatter = [[NSNumberFormatter alloc] init];
+	[currencyFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+	
+	NSNumber *expenseValue = [NSNumber numberWithFloat:expense.cost];
+	NSString *expenseValueString = [currencyFormatter stringFromNumber:expenseValue];
+	
+	
+	NSString *cellText = [NSString stringWithFormat:@"%@ %@", expense.name, expenseValueString];
+	cell.text = cellText;
+
+	[currencyFormatter release];
+	
 	return cell; 
 }
 
