@@ -23,26 +23,37 @@
 	[[self navigationController] pushViewController:expensesListViewController animated:YES];
 }
 
-- (void) setupNecessaryRatioFrame:(int)percentageNecessary {
-	
-	CGRect necessaryFrame = necessaryLabel.frame;	
-	necessaryFrame.origin.x = 0;
-	necessaryFrame.origin.y = 0;	
-	necessaryFrame.size.height = 2.15 * (float) percentageNecessary;
-	necessaryLabel.frame = necessaryFrame;
-	
-	return;
-}
-
 - (void) setupLuxuryRatioFrame:(int)percentageLuxury {
 	
 	CGRect luxuryFrame = luxuryLabel.frame;
 	luxuryFrame.origin.x = 0;
-	luxuryFrame.origin.y = 0 + necessaryLabel.frame.size.height;
+	luxuryFrame.origin.y = 0;
 	luxuryFrame.size.height = 2.15 * (float) percentageLuxury;	
-	luxuryLabel.frame = luxuryFrame;	
+	luxuryLabel.frame = luxuryFrame;
+	UIColor *newColor = [UIColor colorWithRed:0.6 green:0.2 blue:0.4 alpha:1];
+	luxuryLabel.backgroundColor = newColor;
+	
+	
+	
 	return;
 }
+
+- (void) setupNecessaryRatioFrame:(int)percentageNecessary {
+	
+	CGRect necessaryFrame = necessaryLabel.frame;	
+	necessaryFrame.origin.x = 0;
+	necessaryFrame.origin.y = 0 +luxuryLabel.frame.size.height;	
+	necessaryFrame.size.height = 2.15 * (float) percentageNecessary;
+	necessaryLabel.frame = necessaryFrame;
+	
+	//- (UIColor *)initWithRed:(CGFloat)red green:(CGFloat)green blue:(CGFloat)blue alpha:(CGFloat)alpha
+	// To work out the colors - take an RGB value (between 0.0 and 2.55.0 and divide it by 255)
+	UIColor *newColor = [UIColor colorWithRed:0.26 green:0.62 blue:0 alpha:1];		
+	necessaryLabel.backgroundColor = newColor;
+	return;
+}
+
+
 
 
 - (void) segmentAction:(id)sender {

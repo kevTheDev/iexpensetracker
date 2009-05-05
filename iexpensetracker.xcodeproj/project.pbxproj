@@ -15,6 +15,8 @@
 		2899E5600DE3E45000AC0155 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2899E55F0DE3E45000AC0155 /* RootViewController.xib */; };
 		28AD73600D9D9599002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD735F0D9D9599002E5188 /* MainWindow.xib */; };
 		28C286E10D94DF7D0034E888 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */; };
+		DE388DBD0FB0DD6500723814 /* necessityButton.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DE388DBC0FB0DD6500723814 /* necessityButton.jpg */; };
+		DE388DBF0FB0DD6E00723814 /* luxuryButton.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DE388DBE0FB0DD6E00723814 /* luxuryButton.jpg */; };
 		DE9690560FA1B7E500917C65 /* SQLiteAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = DE9690550FA1B7E500917C65 /* SQLiteAccess.m */; };
 		DE96905A0FA1B81F00917C65 /* ExpensesListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE9690590FA1B81F00917C65 /* ExpensesListViewController.m */; };
 		DE9690620FA1B89B00917C65 /* ExpenseDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = DE9690610FA1B89B00917C65 /* ExpenseDAO.m */; };
@@ -46,6 +48,8 @@
 		28C286E00D94DF7D0034E888 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DE388DBC0FB0DD6500723814 /* necessityButton.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = necessityButton.jpg; sourceTree = "<group>"; };
+		DE388DBE0FB0DD6E00723814 /* luxuryButton.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = luxuryButton.jpg; sourceTree = "<group>"; };
 		DE9690540FA1B7E500917C65 /* SQLiteAccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLiteAccess.h; sourceTree = "<group>"; };
 		DE9690550FA1B7E500917C65 /* SQLiteAccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLiteAccess.m; sourceTree = "<group>"; };
 		DE9690580FA1B81F00917C65 /* ExpensesListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpensesListViewController.h; sourceTree = "<group>"; };
@@ -143,6 +147,8 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				DE388DBE0FB0DD6E00723814 /* luxuryButton.jpg */,
+				DE388DBC0FB0DD6500723814 /* necessityButton.jpg */,
 				DE9D7B8E0FA1BF7E00052CBC /* expenses.db */,
 				DE9D7B8C0FA1BF4700052CBC /* expenses.sql */,
 				DE9691240FA1BDE800917C65 /* ExpensesListViewController.xib */,
@@ -225,6 +231,8 @@
 				DE9691250FA1BDE800917C65 /* ExpensesListViewController.xib in Resources */,
 				DE9D7B8D0FA1BF4700052CBC /* expenses.sql in Resources */,
 				DE9D7B8F0FA1BF7E00052CBC /* expenses.db in Resources */,
+				DE388DBD0FB0DD6500723814 /* necessityButton.jpg in Resources */,
+				DE388DBF0FB0DD6E00723814 /* luxuryButton.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
