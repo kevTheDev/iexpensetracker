@@ -53,20 +53,27 @@
 
 - (void) segmentAction:(id)sender {
 
-	if( [segmentedControl selectedSegmentIndex] == 0 ){
-		[self seeMonthlyExpenses];
-	}
-	else if( [segmentedControl selectedSegmentIndex] == 1 ) {
-		[self seeWeeklyExpenses];
-	}
-	else if( [segmentedControl selectedSegmentIndex] == 2 ) {
-		[self seeAllExpenses];
-	}
+	[self seeExpensesInTimePeriod:[segmentedControl selectedSegmentIndex]];
+	return;
 }
 
-- (IBAction)seeMonthlyExpenses {
-	NSLog(@"MONTH PRESSED");
-	float percentageNecessary = [ExpenseDAO lastMonthsPercentageNecessary];
+// time period 0 is MONTHLY
+// 1 IS WEEKLY
+// 2 IS ALL
+- (void)seeExpensesInTimePeriod:(int)timePeriod {
+	
+	float percentageNecessary = 0;
+	
+	if(timePeriod == 0) {
+		percentageNecessary = [ExpenseDAO lastMonthsPercentageNecessary];
+	}
+	else if(timePeriod == 1) {
+		percentageNecessary = [ExpenseDAO lastWeeksPercentageNecessary];
+	}
+	else {
+		percentageNecessary = [ExpenseDAO percentageNecessary];
+	}
+	
 	float percentageLuxury = 100 - percentageNecessary;
 	
 	NSLog(@"NEC: %f%", percentageNecessary);
@@ -74,7 +81,7 @@
 	
 	NSString *realPercentageNecessary = [ExpenseDAO roundedNumber:percentageNecessary];
 	NSString *realPercentageLuxury = [ExpenseDAO roundedNumber:percentageLuxury];
-		
+	
 	NSString *percentageNecessaryString = [NSString stringWithFormat:@"%@%%", realPercentageNecessary];
 	NSString *percentageLuxuryString = [NSString stringWithFormat:@"%@%%", realPercentageLuxury];
 	
@@ -90,83 +97,11 @@
 	
 	[self setupFramesWithPercentageNecessary:percentageNecessary withPercentageLuxury:percentageLuxury];
 	[self setLabelText:luxuryLabelString necessary:necessaryLabelString];
-
-    
 	
-	
-	return;
-}
-
-- (IBAction)seeWeeklyExpenses {
-	NSLog(@"WEEK PRESSED");
-	float percentageNecessary = [ExpenseDAO lastWeeksPercentageNecessary];
-	float percentageLuxury = 100 - percentageNecessary;
-	
-	NSLog(@"NEC: %f%", percentageNecessary);
-	NSLog(@"LUX: %f%", percentageLuxury);
-	
-	NSString *realPercentageNecessary = [ExpenseDAO roundedNumber:percentageNecessary];
-	NSString *realPercentageLuxury = [ExpenseDAO roundedNumber:percentageLuxury];
-	
-	NSString *percentageNecessaryString = [NSString stringWithFormat:@"%@%%", realPercentageNecessary];
-	NSString *percentageLuxuryString = [NSString stringWithFormat:@"%@%%", realPercentageLuxury];
-	
-	float totalNecessaryExpenseCosts = [ExpenseDAO lastWeeksTotalNecessaryExpenseCosts];
-    NSString *totalNecessaryExpensesString = [ExpenseDAO roundedNumber:totalNecessaryExpenseCosts];
-	
-	float totalLuxuryExpenseCosts = [ExpenseDAO lastWeeksTotalLuxuryExpenseCosts];
-	NSString *totalLuxuryExpensesString = [ExpenseDAO roundedNumber:totalLuxuryExpenseCosts];
-	
-	
-    NSString *necessaryLabelString = [NSString stringWithFormat:@"%@ £%@", percentageNecessaryString, totalNecessaryExpensesString];
-	NSString *luxuryLabelString = [NSString stringWithFormat:@"%@ £%@", percentageLuxuryString, totalLuxuryExpensesString];										  
-
-	[self setupFramesWithPercentageNecessary:percentageNecessary withPercentageLuxury:percentageLuxury];
-	
-	[self setLabelText:luxuryLabelString necessary:necessaryLabelString];
-
-    
-	
-		
 	return;
 	
 }
 
-- (IBAction)seeAllExpenses {
-	
-	float percentageNecessary = [ExpenseDAO percentageNecessary];
-	float percentageLuxury = 100 - percentageNecessary;
-	
-    NSLog(@"ALL PRESSED '%f'", percentageNecessary);
-	
-	
-	NSLog(@"NEC: %f%", percentageNecessary);
-	NSLog(@"LUX: %f%", percentageLuxury);
-	
-	NSString *realPercentageNecessary = [ExpenseDAO roundedNumber:percentageNecessary];
-	NSString *realPercentageLuxury = [ExpenseDAO roundedNumber:percentageLuxury];
-	
-	NSString *percentageNecessaryString = [NSString stringWithFormat:@"%@%%", realPercentageNecessary];
-	NSString *percentageLuxuryString = [NSString stringWithFormat:@"%@%%", realPercentageLuxury];
-	
-	float totalNecessaryExpenseCosts = [ExpenseDAO totalNecessaryExpenseCosts];
-    NSString *totalNecessaryExpensesString = [ExpenseDAO roundedNumber:totalNecessaryExpenseCosts];
-	
-	float totalLuxuryExpenseCosts = [ExpenseDAO totalLuxuryExpenseCosts];
-	NSString *totalLuxuryExpensesString = [ExpenseDAO roundedNumber:totalLuxuryExpenseCosts];
-	
-	
-    NSString *necessaryLabelString = [NSString stringWithFormat:@"%@ £%@", percentageNecessaryString, totalNecessaryExpensesString];
-	NSString *luxuryLabelString = [NSString stringWithFormat:@"%@ £%@", percentageLuxuryString, totalLuxuryExpensesString];										  
-	
-	//[self clearFrames];
-	[self setupFramesWithPercentageNecessary:percentageNecessary withPercentageLuxury:percentageLuxury];	
-	[self setLabelText:luxuryLabelString necessary:necessaryLabelString];
-		   
-	return;
-	
-	
-}
 
 - (void) setLabelText:(NSString *)luxuryText necessary:(NSString *)necessaryText {
 	if(necessaryLabel.frame.size.height < 30) {
@@ -209,7 +144,7 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
-	[self seeMonthlyExpenses];
+	[self seeExpensesInTimePeriod:0];
 	UIBarButtonItem *addButton = [[[UIBarButtonItem alloc] 
 								   initWithBarButtonSystemItem:UIBarButtonSystemItemAdd 
 								   target:self 
@@ -221,7 +156,7 @@
 -(void)viewWillAppear:(BOOL)animated{
 	[super viewWillAppear:animated];
 	NSLog(@"VIEW WILL APPEAR");
-	[self seeMonthlyExpenses];
+	[self seeExpensesInTimePeriod:0];
 	
 	Expense *lastExpense = [ExpenseDAO lastExpenseEntered];
 	

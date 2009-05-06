@@ -23,10 +23,7 @@
 	IBOutlet UILabel *changeLabel;
 }
 
-
-- (IBAction)seeMonthlyExpenses;
-- (IBAction)seeWeeklyExpenses;
-- (IBAction)seeAllExpenses;
+- (void)seeExpensesInTimePeriod:(int)timePeriod;
 
 - (IBAction)showListView;
 - (IBAction)showNewExpenseView;
