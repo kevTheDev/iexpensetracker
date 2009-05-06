@@ -6,6 +6,7 @@
 *.mode2v3
 *.pbxuser
 *.perspectivev3
+*.pbxproj
 
 #Ignore textmate build errors
 *.tm_build_errors
