@@ -96,8 +96,8 @@
 	[self setupNecessaryRatioFrame:percentageNecessary];
 	[self setupLuxuryRatioFrame:percentageLuxury];
 	
-	[necessaryLabel setText:necessaryLabelString];
-	[luxuryLabel setText:luxuryLabelString];
+	[self setLabelText:luxuryLabelString necessary:necessaryLabelString];
+
     
 	
 	
@@ -131,8 +131,8 @@
 	[self setupNecessaryRatioFrame:percentageNecessary];
 	[self setupLuxuryRatioFrame:percentageLuxury];
 	
-	[necessaryLabel setText:necessaryLabelString];
-	[luxuryLabel setText:luxuryLabelString];
+	[self setLabelText:luxuryLabelString necessary:necessaryLabelString];
+
     
 	
 		
@@ -170,14 +170,27 @@
 	[self setupNecessaryRatioFrame:percentageNecessary];
 	[self setupLuxuryRatioFrame:percentageLuxury];
 	
-	[necessaryLabel setText:necessaryLabelString];
-	[luxuryLabel setText:luxuryLabelString];
-    
-	
-    
+	[self setLabelText:luxuryLabelString necessary:necessaryLabelString];
+		   
 	return;
 	
 	
+}
+
+- (void) setLabelText:(NSString *)luxuryText necessary:(NSString *)necessaryText {
+	if(necessaryLabel.frame.size.height < 30) {
+		[necessaryLabel setText:@""];		
+	}
+	else {
+		[necessaryLabel setText:necessaryText];
+	}
+	
+	if(luxuryLabel.frame.size.height < 30) {
+		[luxuryLabel setText:@""];
+	}
+	else {
+		[luxuryLabel setText:luxuryText];		
+	}
 }
 
 /*
@@ -274,5 +287,7 @@
 	[[UIApplication sharedApplication] openURL: [NSURL URLWithString: url]];
 
 }
+
+
 
 @end
