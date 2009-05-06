@@ -164,7 +164,7 @@
 		
 		if(lastExpense.necessary == YES){
 			NSLog(@"LAST EXPENSE NECESSARY: %f", lastExpense.cost);
-			NSString *changeString = [NSString stringWithFormat:@"+ Last Expense: %@ %@,", lastExpense.name, [lastExpense formattedExpenseValue]];
+			NSString *changeString = [NSString stringWithFormat:@"+ Last Expense: %@ %@", lastExpense.name, [lastExpense formattedExpenseValue]];
 			[changeLabel setText:changeString];
 			changeLabel.textColor = necessaryLabel.backgroundColor;
 
