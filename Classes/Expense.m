@@ -16,5 +16,17 @@
 @synthesize necessary;
 @synthesize cost;
 
+- (NSString *)formattedExpenseValue {
+	
+	NSNumberFormatter *currencyFormatter = [[NSNumberFormatter alloc] init];
+	[currencyFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+	
+	NSNumber *expenseValue = [NSNumber numberWithFloat:self.cost];
+	NSString *expenseValueString = [currencyFormatter stringFromNumber:expenseValue];
+	
+	[currencyFormatter release];
+	return expenseValueString;
+}
+	
 
 @end

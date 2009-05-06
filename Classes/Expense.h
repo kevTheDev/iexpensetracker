@@ -21,5 +21,6 @@
 @property (nonatomic) BOOL necessary;
 @property (nonatomic) float cost;
 
+- (NSString *)formattedExpenseValue;
 
 @end

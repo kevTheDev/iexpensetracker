@@ -49,18 +49,9 @@
 
 	Expense *expense = [self.expenses objectAtIndex:indexPath.row];
 	
-	NSNumberFormatter *currencyFormatter = [[NSNumberFormatter alloc] init];
-	[currencyFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
-	
-	NSNumber *expenseValue = [NSNumber numberWithFloat:expense.cost];
-	NSString *expenseValueString = [currencyFormatter stringFromNumber:expenseValue];
-	
-	
-	NSString *cellText = [NSString stringWithFormat:@"%@ %@", expense.name, expenseValueString];
+	NSString *cellText = [NSString stringWithFormat:@"%@ %@", expense.name, [expense formattedExpenseValue]];
 	cell.text = cellText;
 
-	[currencyFormatter release];
-	
 	return cell; 
 }
 
