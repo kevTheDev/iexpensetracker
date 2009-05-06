@@ -170,14 +170,14 @@
 		
 		if(lastExpense.necessary == YES){
 			NSLog(@"LAST EXPENSE NECESSARY: %f", lastExpense.cost);
-			NSString *changeString = [NSString stringWithFormat:@"+ %@", expenseValueString];
+			NSString *changeString = [NSString stringWithFormat:@"+ Last Expense: %@ %@,", lastExpense.name, expenseValueString];
 			[changeLabel setText:changeString];
 			changeLabel.textColor = necessaryLabel.backgroundColor;
 
 		}
 		else {
 			NSLog(@"LAST EXPENSE LUXURY: %f", lastExpense.cost);
-			NSString *changeString = [NSString stringWithFormat:@"- %@", expenseValueString];
+			NSString *changeString = [NSString stringWithFormat:@"- Last Expense %@ %@", lastExpense.name, expenseValueString];
 			[changeLabel setText:changeString];
 			changeLabel.textColor = luxuryLabel.backgroundColor;
 		}
