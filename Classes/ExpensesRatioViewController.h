@@ -32,9 +32,9 @@
 - (IBAction)showNewExpenseView;
 - (IBAction)sendFeeback;
 
+- (void)setupFramesWithPercentageNecessary:(int)percentageNecessary withPercentageLuxury:(int)percentageLuxury;
+
 - (void) segmentAction:(id)sender;
-- (void) setupNecessaryRatioFrame:(int)percentageNecessary;
-- (void) setupLuxuryRatioFrame:(int)percentageLuxury;
 - (void) setLabelText:(NSString *)luxuryText necessary:(NSString *)necessaryText;
 
 @property (nonatomic, retain) IBOutlet NewExpenseViewController *newExpenseViewController;
