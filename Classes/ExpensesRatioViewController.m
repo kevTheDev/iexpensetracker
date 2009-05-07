@@ -26,6 +26,30 @@
 
 - (void)setupFramesWithPercentageNecessary:(int)percentageNecessary withPercentageLuxury:(int)percentageLuxury {
 	
+	NSLog(@"RAS");
+	
+	if([ExpenseDAO expensesCount] == 0) {
+		NSLog(@"NO EXPENSES");
+		CGRect necessaryFrame = necessaryLabel.frame;	
+		necessaryFrame.origin.x = 0;
+		necessaryFrame.origin.y = 0;
+		
+		necessaryFrame.size.height = 2.15 * (float) 100;
+		necessaryLabel.frame = necessaryFrame;
+		
+		//- (UIColor *)initWithRed:(CGFloat)red green:(CGFloat)green blue:(CGFloat)blue alpha:(CGFloat)alpha
+		// To work out the colors - take an RGB value (between 0.0 and 2.55.0 and divide it by 255)
+		UIColor *green = [UIColor colorWithRed:0.26 green:0.62 blue:0 alpha:1];		
+		necessaryLabel.backgroundColor = green;
+		[necessaryLabel setText:@"No Expenses"];
+		
+		CGRect luxuryFrame = luxuryLabel.frame;
+		luxuryFrame.size.height = 0;
+		luxuryLabel.frame = luxuryFrame;
+		
+		return;
+	}
+	
 	CGRect luxuryFrame = luxuryLabel.frame;
 	luxuryFrame.origin.x = 0;
 	luxuryFrame.origin.y = 0;
@@ -61,6 +85,11 @@
 // 1 IS WEEKLY
 // 2 IS ALL
 - (void)seeExpensesInTimePeriod:(int)timePeriod {
+	
+	if([ExpenseDAO expensesCount] == 0) {
+		[self setupFramesWithPercentageNecessary:0 withPercentageLuxury:0];
+		return;
+	}
 	
 	float percentageNecessary = 0;
 	

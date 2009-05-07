@@ -290,7 +290,14 @@
 	float currentTotal = [self totalExpenseCosts];
 	float oldTotal = currentTotal - [lastExpense cost];
 	
-	float percentageChange = ([lastExpense cost] / oldTotal) * 100;
+	float percentageChange = 0;
+	//prevent divide by zero
+	if(oldTotal == 0) {
+		percentageChange = 100;
+	}
+	else {
+		percentageChange = ([lastExpense cost] / oldTotal) * 100;
+	}
 	
 	float roundedValue = round(2.0f * percentageChange) / 2.0f;
 	NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
