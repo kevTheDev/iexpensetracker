@@ -186,6 +186,9 @@
 	}
 	else {
 		[lastExpenseNameLabel setText:@""];
+		[percentageChangeLabel setText:@""];
+		[lastExpenseCostLabel setText:@""];
+		[staticLastExpenseLabel setText:@""];
 	}
 		
 }
