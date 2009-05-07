@@ -64,6 +64,10 @@
 	return [SQLiteAccess selectManyValuesWithSQL:@"SELECT expense_cost FROM expenses WHERE expense_necessary = 0"];
 }
 
++ (float) totalExpenseCosts {	
+	return [ExpenseDAO floatArraySummer:[ExpenseDAO fetchNecessaryExpenseCosts]] + [ExpenseDAO floatArraySummer:[ExpenseDAO fetchUnnecessaryExpenseCosts]];
+}
+
 + (float) totalNecessaryExpenseCosts {
 	
 	NSArray *expenses = [ExpenseDAO fetchNecessaryExpenseCosts];
@@ -197,6 +201,7 @@
 	return (totalNecessaryExpenseCosts / totalExpenses) * 100;
 }
 
+// TODO refactor this unDRY date formatter init stuff and also mem management needs handling
 + (NSArray *)fetchLastMonthsNecessaryExpenseCosts {
 	// sqlite3 date format should conform to: 2009-04-20 08:22:53
 	NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -207,10 +212,9 @@
 	
 	NSString *aMonthAgoString = [dateFormatter stringFromDate:aMonthAgo];
 	
-	//NSLog(@"A month ago: %@", aMonthAgoString);
 	NSString *queryString = [NSString stringWithFormat:@"SELECT expense_cost FROM expenses WHERE expense_necessary = 1 AND created_at >= '%@'", aMonthAgoString];
 	
-	//NSLog(@"QUERY STRING: %@", queryString);
+	
 	
 	return [SQLiteAccess selectManyValuesWithSQL:queryString];
 	
@@ -269,6 +273,38 @@
 	else {
 		return NULL;
 	}
+	
+}
+
+// Work out the percentage change from the last expense
+// Get the total cost of all expenses
+// Get the old total
+// Work out percentage of old total that last expense equals
+
+// e.g. Old total is 20 - last expense is 5
+// Percentage change = (5/20) * 100 = 25% change
++ (NSString *)lastExpensePercentageChange {
+	
+	Expense *lastExpense = [ExpenseDAO lastExpenseEntered];
+	
+	float currentTotal = [self totalExpenseCosts];
+	float oldTotal = currentTotal - [lastExpense cost];
+	
+	float percentageChange = ([lastExpense cost] / oldTotal) * 100;
+	
+	float roundedValue = round(2.0f * percentageChange) / 2.0f;
+	NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+	[formatter setMaximumFractionDigits:2];
+	[formatter setRoundingMode: NSNumberFormatterRoundUp];
+	
+	NSString *numberString = [formatter stringFromNumber:[NSNumber numberWithFloat:roundedValue]];
+	[formatter release];
+	
+	
+	
+	
+	NSString *percentageChangeString = [NSString stringWithFormat:@"+ %%%@", numberString];
+	return percentageChangeString;
 	
 }
 

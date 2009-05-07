@@ -162,22 +162,29 @@
 	
 	if(lastExpense != NULL) {
 		
+		[staticLastExpenseLabel setText:@"Last expense entered:"];
+		
 		if(lastExpense.necessary == YES){
 			NSLog(@"LAST EXPENSE NECESSARY: %f", lastExpense.cost);
-			NSString *changeString = [NSString stringWithFormat:@"+ Last Expense: %@ %@", lastExpense.name, [lastExpense formattedExpenseValue]];
-			[changeLabel setText:changeString];
-			changeLabel.textColor = necessaryLabel.backgroundColor;
+			[lastExpenseNameLabel setText:lastExpense.name];
+			lastExpenseNameLabel.textColor = necessaryLabel.backgroundColor;
+			percentageChangeLabel.textColor = necessaryLabel.backgroundColor;
+			lastExpenseCostLabel.textColor = necessaryLabel.backgroundColor;
 
 		}
 		else {
 			NSLog(@"LAST EXPENSE LUXURY: %f", lastExpense.cost);
-			NSString *changeString = [NSString stringWithFormat:@"- Last Expense %@ %@", lastExpense.name, [lastExpense formattedExpenseValue]];
-			[changeLabel setText:changeString];
-			changeLabel.textColor = luxuryLabel.backgroundColor;
+			[lastExpenseNameLabel setText:lastExpense.name];
+			lastExpenseNameLabel.textColor = luxuryLabel.backgroundColor;
+			percentageChangeLabel.textColor = luxuryLabel.backgroundColor;
+			lastExpenseCostLabel.textColor = luxuryLabel.backgroundColor;
 		}
+		
+		[lastExpenseCostLabel setText:[lastExpense formattedExpenseValue]];
+		[percentageChangeLabel setText:[ExpenseDAO lastExpensePercentageChange]];
 	}
 	else {
-		[changeLabel setText:@"There are no expenses"];
+		[lastExpenseNameLabel setText:@""];
 	}
 		
 }

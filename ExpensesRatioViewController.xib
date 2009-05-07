@@ -147,16 +147,58 @@
 					<object class="IBUILabel" id="756847811">
 						<reference key="NSNextResponder" ref="1003466480"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{20, 245}, {280, 21}}</string>
+						<string key="NSFrame">{{155, 245}, {145, 21}}</string>
 						<reference key="NSSuperview" ref="1003466480"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="IBUIText">Label</string>
-						<object class="NSColor" key="IBUITextColor">
+						<object class="NSColor" key="IBUITextColor" id="1070583994">
 							<int key="NSColorSpace">1</int>
 							<bytes key="NSRGB">MCAwIDAAA</bytes>
 						</object>
+						<nil key="IBUIHighlightedColor"/>
+						<int key="IBUIBaselineAdjustment">1</int>
+						<float key="IBUIMinimumFontSize">1.000000e+01</float>
+					</object>
+					<object class="IBUILabel" id="634266727">
+						<reference key="NSNextResponder" ref="1003466480"/>
+						<int key="NSvFlags">292</int>
+						<string key="NSFrame">{{20, 274}, {127, 21}}</string>
+						<reference key="NSSuperview" ref="1003466480"/>
+						<bool key="IBUIOpaque">NO</bool>
+						<bool key="IBUIClipsSubviews">YES</bool>
+						<bool key="IBUIUserInteractionEnabled">NO</bool>
+						<string key="IBUIText">Label</string>
+						<reference key="IBUITextColor" ref="1070583994"/>
+						<nil key="IBUIHighlightedColor"/>
+						<int key="IBUIBaselineAdjustment">1</int>
+						<float key="IBUIMinimumFontSize">1.000000e+01</float>
+					</object>
+					<object class="IBUILabel" id="457494447">
+						<reference key="NSNextResponder" ref="1003466480"/>
+						<int key="NSvFlags">292</int>
+						<string key="NSFrame">{{20, 245}, {127, 21}}</string>
+						<reference key="NSSuperview" ref="1003466480"/>
+						<bool key="IBUIOpaque">NO</bool>
+						<bool key="IBUIClipsSubviews">YES</bool>
+						<bool key="IBUIUserInteractionEnabled">NO</bool>
+						<string key="IBUIText">Label</string>
+						<reference key="IBUITextColor" ref="1070583994"/>
+						<nil key="IBUIHighlightedColor"/>
+						<int key="IBUIBaselineAdjustment">1</int>
+						<float key="IBUIMinimumFontSize">1.000000e+01</float>
+					</object>
+					<object class="IBUILabel" id="869569060">
+						<reference key="NSNextResponder" ref="1003466480"/>
+						<int key="NSvFlags">292</int>
+						<string key="NSFrame">{{155, 274}, {137, 21}}</string>
+						<reference key="NSSuperview" ref="1003466480"/>
+						<bool key="IBUIOpaque">NO</bool>
+						<bool key="IBUIClipsSubviews">YES</bool>
+						<bool key="IBUIUserInteractionEnabled">NO</bool>
+						<string key="IBUIText">Label</string>
+						<reference key="IBUITextColor" ref="1070583994"/>
 						<nil key="IBUIHighlightedColor"/>
 						<int key="IBUIBaselineAdjustment">1</int>
 						<float key="IBUIMinimumFontSize">1.000000e+01</float>
@@ -251,20 +293,44 @@
 					<int key="connectionID">47</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">changeLabel</string>
-						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="756847811"/>
-					</object>
-					<int key="connectionID">49</int>
-				</object>
-				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">sendFeeback</string>
 						<reference key="source" ref="142682885"/>
 						<reference key="destination" ref="372490531"/>
 					</object>
 					<int key="connectionID">52</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">lastExpenseNameLabel</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="756847811"/>
+					</object>
+					<int key="connectionID">54</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">lastExpenseCostLabel</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="634266727"/>
+					</object>
+					<int key="connectionID">55</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">staticLastExpenseLabel</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="457494447"/>
+					</object>
+					<int key="connectionID">57</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">percentageChangeLabel</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="869569060"/>
+					</object>
+					<int key="connectionID">59</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -298,7 +364,10 @@
 							<reference ref="824169378"/>
 							<reference ref="332139730"/>
 							<reference ref="48545980"/>
+							<reference ref="634266727"/>
 							<reference ref="756847811"/>
+							<reference ref="457494447"/>
+							<reference ref="869569060"/>
 						</object>
 						<reference key="parent" ref="360949347"/>
 					</object>
@@ -346,11 +415,28 @@
 						<int key="objectID">48</int>
 						<reference key="object" ref="756847811"/>
 						<reference key="parent" ref="1003466480"/>
+						<string key="objectName">Last Expense Name</string>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">51</int>
 						<reference key="object" ref="142682885"/>
 						<reference key="parent" ref="48545980"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">53</int>
+						<reference key="object" ref="634266727"/>
+						<reference key="parent" ref="1003466480"/>
+						<string key="objectName">Last Expense Cost</string>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">56</int>
+						<reference key="object" ref="457494447"/>
+						<reference key="parent" ref="1003466480"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">58</int>
+						<reference key="object" ref="869569060"/>
+						<reference key="parent" ref="1003466480"/>
 					</object>
 				</object>
 			</object>
@@ -375,6 +461,9 @@
 					<string>41.IBPluginDependency</string>
 					<string>48.IBPluginDependency</string>
 					<string>51.IBPluginDependency</string>
+					<string>53.IBPluginDependency</string>
+					<string>56.IBPluginDependency</string>
+					<string>58.IBPluginDependency</string>
 					<string>8.IBEditorWindowLastContentRect</string>
 					<string>8.IBPluginDependency</string>
 				</object>
@@ -394,6 +483,9 @@
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>NewExpenseViewController</string>
 					<string>{{0, 365}, {320, 480}}</string>
+					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -421,7 +513,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">52</int>
+			<int key="maxID">59</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -458,9 +550,6 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSMutableArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>seeAllExpenses</string>
-							<string>seeMonthlyExpenses</string>
-							<string>seeWeeklyExpenses</string>
 							<string>segmentAction:</string>
 							<string>sendFeeback</string>
 							<string>showListView</string>
@@ -472,32 +561,33 @@
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
-							<string>id</string>
-							<string>id</string>
-							<string>id</string>
 						</object>
 					</object>
 					<object class="NSMutableDictionary" key="outlets">
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSMutableArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>changeLabel</string>
 							<string>expensesListViewController</string>
+							<string>lastExpenseCostLabel</string>
+							<string>lastExpenseNameLabel</string>
 							<string>luxuryLabel</string>
 							<string>necessaryLabel</string>
 							<string>newExpenseViewController</string>
-							<string>ratioLabel</string>
+							<string>percentageChangeLabel</string>
 							<string>segmentedControl</string>
+							<string>staticLastExpenseLabel</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>UILabel</string>
 							<string>ExpensesListViewController</string>
+							<string>UILabel</string>
+							<string>UILabel</string>
 							<string>GlossyLabel</string>
 							<string>GlossyLabel</string>
 							<string>NewExpenseViewController</string>
-							<string>GlossyLabel</string>
+							<string>UILabel</string>
 							<string>UISegmentedControl</string>
+							<string>UILabel</string>
 						</object>
 					</object>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">

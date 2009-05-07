@@ -17,10 +17,12 @@
 	IBOutlet ExpensesListViewController *expensesListViewController;
 	IBOutlet NewExpenseViewController *newExpenseViewController;
 	IBOutlet UISegmentedControl *segmentedControl;
-	IBOutlet GlossyLabel *ratioLabel;
 	IBOutlet GlossyLabel *necessaryLabel;
 	IBOutlet GlossyLabel *luxuryLabel;
-	IBOutlet UILabel *changeLabel;
+	IBOutlet UILabel *staticLastExpenseLabel;
+	IBOutlet UILabel *lastExpenseNameLabel;
+	IBOutlet UILabel *lastExpenseCostLabel;
+	IBOutlet UILabel *percentageChangeLabel;
 }
 
 - (void)seeExpensesInTimePeriod:(int)timePeriod;

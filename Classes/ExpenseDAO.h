@@ -20,8 +20,11 @@
 + (NSArray *)fetchUnnecessaryExpenses;
 + (NSArray *)fetchNecessaryExpenseCosts;
 + (NSArray *)fetchUnnecessaryExpenseCosts;
+
++ (float) totalExpenseCosts;
 + (float) totalNecessaryExpenseCosts;
 + (float) totalLuxuryExpenseCosts;
+
 + (float) percentageNecessary;
 + (NSString *)roundedNumber:(float)numberToRound;
 
@@ -40,5 +43,6 @@
 + (float) floatArraySummer:(NSArray *)floatArray;
 
 + (Expense *)lastExpenseEntered;
++ (NSString *)lastExpensePercentageChange;
 
 @end
