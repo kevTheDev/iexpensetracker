@@ -108,8 +108,24 @@
 	NSLog(@"NEC: %f%", percentageNecessary);
 	NSLog(@"LUX: %f%", percentageLuxury);
 
-	NSString *percentageNecessaryString = [NSString stringWithFormat:@"%@%%", [ExpenseDAO roundedNumber:percentageNecessary]];
-	NSString *percentageLuxuryString = [NSString stringWithFormat:@"%@%%", [ExpenseDAO roundedNumber:percentageLuxury]];
+	NSString *percentageNecessaryString;
+	NSString *percentageLuxuryString;
+	
+	if(percentageNecessary < 100) {
+		percentageNecessaryString = [NSString stringWithFormat:@"%@%%", [ExpenseDAO roundedNumber:percentageNecessary]];
+	}
+	else {
+		percentageNecessaryString = @"100%";
+	}
+	
+	if(percentageLuxury < 100) {
+		percentageLuxuryString = [NSString stringWithFormat:@"%@%%", [ExpenseDAO roundedNumber:percentageLuxury]];
+	}
+	else {
+		percentageLuxuryString = @"100%";
+	}
+
+	
 	
 	float totalNecessaryExpenseCosts = [ExpenseDAO lastMonthsTotalNecessaryExpenseCosts];
 //    NSString *totalNecessaryExpensesString = [ExpenseDAO roundedNumber:totalNecessaryExpenseCosts];

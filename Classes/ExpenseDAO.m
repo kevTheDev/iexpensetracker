@@ -299,18 +299,26 @@
 		percentageChange = ([lastExpense cost] / oldTotal) * 100;
 	}
 	
-	float roundedValue = round(2.0f * percentageChange) / 2.0f;
-	NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
-	[formatter setMaximumFractionDigits:2];
-	[formatter setRoundingMode: NSNumberFormatterRoundUp];
+	NSString *percentageChangeString;
 	
-	NSString *numberString = [formatter stringFromNumber:[NSNumber numberWithFloat:roundedValue]];
-	[formatter release];
+	if(percentageChange < 100)
+	{
+		float roundedValue = round(2.0f * percentageChange) / 2.0f;
+		NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+		[formatter setMaximumFractionDigits:2];
+		[formatter setRoundingMode: NSNumberFormatterRoundUp];
+	
+		NSString *numberString = [formatter stringFromNumber:[NSNumber numberWithFloat:roundedValue]];
+		[formatter release];
+		percentageChangeString = [NSString stringWithFormat:@"+ %%%@", numberString];
+	}
+	else {
+		percentageChangeString = @"+ %100";
+	}
 	
 	
 	
 	
-	NSString *percentageChangeString = [NSString stringWithFormat:@"+ %%%@", numberString];
 	return percentageChangeString;
 	
 }
