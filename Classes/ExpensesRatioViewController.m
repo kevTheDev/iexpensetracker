@@ -163,6 +163,7 @@
 	if(lastExpense != NULL) {
 		
 		[staticLastExpenseLabel setText:@"Last expense entered:"];
+		staticLastExpenseLabel.minimumFontSize = lastExpenseNameLabel.minimumFontSize;
 		
 		if(lastExpense.necessary == YES){
 			NSLog(@"LAST EXPENSE NECESSARY: %f", lastExpense.cost);
