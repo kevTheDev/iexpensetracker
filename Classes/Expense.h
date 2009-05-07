@@ -22,5 +22,6 @@
 @property (nonatomic) float cost;
 
 - (NSString *)formattedExpenseValue;
++ (NSString *)formatExpenseValue:(float)expenseValue;
 
 @end

@@ -123,8 +123,8 @@
 	
 	float roundedValue = round(2.0f * numberToRound) / 2.0f;
 	NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
-	[formatter setMaximumFractionDigits:1];
-	[formatter setRoundingMode: NSNumberFormatterRoundDown];
+	[formatter setMaximumFractionDigits:2];
+	[formatter setRoundingMode: NSNumberFormatterRoundUp];
 	
 	NSString *numberString = [formatter stringFromNumber:[NSNumber numberWithFloat:roundedValue]];
 	[formatter release];

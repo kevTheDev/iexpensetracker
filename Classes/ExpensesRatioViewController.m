@@ -112,14 +112,15 @@
 	NSString *percentageLuxuryString = [NSString stringWithFormat:@"%@%%", [ExpenseDAO roundedNumber:percentageLuxury]];
 	
 	float totalNecessaryExpenseCosts = [ExpenseDAO lastMonthsTotalNecessaryExpenseCosts];
-    NSString *totalNecessaryExpensesString = [ExpenseDAO roundedNumber:totalNecessaryExpenseCosts];
+//    NSString *totalNecessaryExpensesString = [ExpenseDAO roundedNumber:totalNecessaryExpenseCosts];
+	NSString *totalNecessaryExpensesString = [Expense formatExpenseValue:totalNecessaryExpenseCosts];
 	
 	float totalLuxuryExpenseCosts = [ExpenseDAO lastMonthsTotalLuxuryExpenseCosts];
-	NSString *totalLuxuryExpensesString = [ExpenseDAO roundedNumber:totalLuxuryExpenseCosts];
+	//NSString *totalLuxuryExpensesString = [ExpenseDAO roundedNumber:totalLuxuryExpenseCosts];
+	NSString *totalLuxuryExpensesString = [Expense formatExpenseValue:totalLuxuryExpenseCosts];
 	
-	
-    NSString *necessaryLabelString = [NSString stringWithFormat:@"%@ £%@", percentageNecessaryString, totalNecessaryExpensesString];
-	NSString *luxuryLabelString = [NSString stringWithFormat:@"%@ £%@", percentageLuxuryString, totalLuxuryExpensesString];										  
+    NSString *necessaryLabelString = [NSString stringWithFormat:@"%@ %@", percentageNecessaryString, totalNecessaryExpensesString];
+	NSString *luxuryLabelString = [NSString stringWithFormat:@"%@ %@", percentageLuxuryString, totalLuxuryExpensesString];										  
 	
 	[self setupFramesWithPercentageNecessary:percentageNecessary withPercentageLuxury:percentageLuxury];
 	[self setLabelText:luxuryLabelString necessary:necessaryLabelString];

@@ -27,6 +27,17 @@
 	[currencyFormatter release];
 	return expenseValueString;
 }
+
++ (NSString *)formatExpenseValue:(float)expenseValue {
+	NSNumberFormatter *currencyFormatter = [[NSNumberFormatter alloc] init];
+	[currencyFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+	
+	NSNumber *expenseValueNumber = [NSNumber numberWithFloat:expenseValue];
+	NSString *expenseValueString = [currencyFormatter stringFromNumber:expenseValueNumber];
+	
+	[currencyFormatter release];
+	return expenseValueString;
+}
 	
 
 @end
