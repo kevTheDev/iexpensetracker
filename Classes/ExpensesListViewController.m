@@ -51,6 +51,14 @@
 	
 	NSString *cellText = [NSString stringWithFormat:@"%@ %@", expense.name, [expense formattedExpenseValue]];
 	cell.text = cellText;
+	
+	if(expense.necessary) {
+		cell.textColor = [UIColor colorWithRed:0.26 green:0.62 blue:0 alpha:1];
+	}
+	else {
+		cell.textColor = [UIColor colorWithRed:0.6 green:0.2 blue:0.4 alpha:1];
+	}
+
 
 	return cell; 
 }
