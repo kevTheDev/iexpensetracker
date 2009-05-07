@@ -98,8 +98,9 @@
 						<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
 						<int key="IBUITag">2</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
-						<string key="IBUIText">Title (optional)</string>
+						<string key="IBUIText"/>
 						<int key="IBUIBorderStyle">3</int>
+						<string key="IBUIPlaceholder">Title (optional)</string>
 						<object class="NSColor" key="IBUITextColor">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MAA</bytes>
@@ -433,9 +434,6 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSMutableArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>seeAllExpenses</string>
-							<string>seeMonthlyExpenses</string>
-							<string>seeWeeklyExpenses</string>
 							<string>segmentAction:</string>
 							<string>sendFeeback</string>
 							<string>showListView</string>
@@ -447,32 +445,33 @@
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
-							<string>id</string>
-							<string>id</string>
-							<string>id</string>
 						</object>
 					</object>
 					<object class="NSMutableDictionary" key="outlets">
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSMutableArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>changeLabel</string>
 							<string>expensesListViewController</string>
+							<string>lastExpenseCostLabel</string>
+							<string>lastExpenseNameLabel</string>
 							<string>luxuryLabel</string>
 							<string>necessaryLabel</string>
 							<string>newExpenseViewController</string>
-							<string>ratioLabel</string>
+							<string>percentageChangeLabel</string>
 							<string>segmentedControl</string>
+							<string>staticLastExpenseLabel</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>UILabel</string>
 							<string>ExpensesListViewController</string>
+							<string>UILabel</string>
+							<string>UILabel</string>
 							<string>GlossyLabel</string>
 							<string>GlossyLabel</string>
 							<string>NewExpenseViewController</string>
-							<string>GlossyLabel</string>
+							<string>UILabel</string>
 							<string>UISegmentedControl</string>
+							<string>UILabel</string>
 						</object>
 					</object>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">

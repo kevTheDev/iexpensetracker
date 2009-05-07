@@ -57,11 +57,19 @@
 	NSNumberFormatter *currencyFormatter = [[NSNumberFormatter alloc] init];
 	[currencyFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
 	NSString *currentText = [costTextField text];
+	
+	NSString *nameText = [nameTextField text];
+	
+	if(nameText == nameTextField.placeholder) {
+		nameText = @"";
+	}
+
+	
 	NSNumber *currentValueNumber = [currencyFormatter numberFromString:currentText];
 	NSLog(@"ADD FLOAT: %f", [currentValueNumber floatValue]);
 	
 	
-	NSString *sql = [NSString stringWithFormat:@"INSERT INTO expenses (expense_name, expense_cost, expense_necessary, created_at) VALUES ('%@', %f, 1, current_timestamp)", [nameTextField text], [currentValueNumber floatValue]];
+	NSString *sql = [NSString stringWithFormat:@"INSERT INTO expenses (expense_name, expense_cost, expense_necessary, created_at) VALUES ('%@', %f, 1, current_timestamp)", nameText, [currentValueNumber floatValue]];
 	
 	[SQLiteAccess insertWithSQL:sql];
 	[currencyFormatter release];
@@ -74,11 +82,21 @@
 	NSNumberFormatter *currencyFormatter = [[NSNumberFormatter alloc] init];
 	[currencyFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
 	NSString *currentText = [costTextField text];
+	
+	NSString *nameText = [nameTextField text];
+	
+	if(nameText == nameTextField.placeholder) {
+		nameText = @"";
+	}
+	
+		
+	
+	
 	NSNumber *currentValueNumber = [currencyFormatter numberFromString:currentText];
 	NSLog(@"ADD FLOAT: %f", [currentValueNumber floatValue]);
 	
 	
-	NSString *sql = [NSString stringWithFormat:@"INSERT INTO expenses (expense_name, expense_cost, expense_necessary, created_at) VALUES ('%@', %f, 0, current_timestamp)", [nameTextField text], [currentValueNumber floatValue]];
+	NSString *sql = [NSString stringWithFormat:@"INSERT INTO expenses (expense_name, expense_cost, expense_necessary, created_at) VALUES ('%@', %f, 0, current_timestamp)", nameText, [currentValueNumber floatValue]];
 	[SQLiteAccess insertWithSQL:sql];
 	[currencyFormatter release];
 	[[self navigationController] popViewControllerAnimated:YES];
