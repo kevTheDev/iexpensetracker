@@ -310,10 +310,10 @@
 	
 		NSString *numberString = [formatter stringFromNumber:[NSNumber numberWithFloat:roundedValue]];
 		[formatter release];
-		percentageChangeString = [NSString stringWithFormat:@"+ %%%@", numberString];
+		percentageChangeString = [NSString stringWithFormat:@"+ %@%", numberString];
 	}
 	else {
-		percentageChangeString = @"+ %100";
+		percentageChangeString = @"+ 100%";
 	}
 	
 	
