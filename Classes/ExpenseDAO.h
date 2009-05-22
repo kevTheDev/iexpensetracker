@@ -27,6 +27,8 @@
 
 + (float) percentageNecessary;
 + (NSString *)roundedNumber:(float)numberToRound;
++ (NSString *)roundedWholeNumber:(float)numberToRound;
++ (float)roundFloatToInteger:(float)numberToRound;
 
 + (float) lastWeeksTotalNecessaryExpenseCosts;
 + (float) lastWeeksTotalLuxuryExpenseCosts;	

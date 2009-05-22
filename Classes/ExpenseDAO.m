@@ -133,6 +133,31 @@
 	
 }
 
++ (NSString *)roundedWholeNumber:(float)numberToRound {
+	float roundedValue = round(2.0f * numberToRound) / 2.0f;
+	NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+	[formatter setMaximumFractionDigits:0];
+	[formatter setRoundingMode: NSNumberFormatterRoundUp];
+	
+	NSString *numberString = [formatter stringFromNumber:[NSNumber numberWithFloat:roundedValue]];
+	[formatter release];
+	
+	return numberString;
+}
+
++ (float)roundFloatToInteger:(float)numberToRound {
+	float roundedValue = round(2.0f * numberToRound) / 2.0f;
+	NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+	[formatter setMaximumFractionDigits:0];
+	[formatter setRoundingMode: NSNumberFormatterRoundUp];
+	
+	NSString *numberString = [formatter stringFromNumber:[NSNumber numberWithFloat:roundedValue]];
+	[formatter release];
+	
+	float wholeValue = [numberString floatValue];
+	return wholeValue;
+}
+
 + (float) floatArraySummer:(NSArray *)floatArray {
 	
 	float summedValue = 0.0;
