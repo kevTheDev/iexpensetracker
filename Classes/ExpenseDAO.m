@@ -25,7 +25,7 @@
 
 + (NSArray *)fetchExpenses {
 	
-	NSArray *sqlObjects = [SQLiteAccess selectManyRowsWithSQL:@"SELECT * FROM expenses"];
+	NSArray *sqlObjects = [SQLiteAccess selectManyRowsWithSQL:@"SELECT * FROM expenses ORDER BY created_at DESC"];
 	NSMutableArray *expenses = [NSMutableArray arrayWithCapacity:[sqlObjects count]];
 	
 	

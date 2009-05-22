@@ -15,6 +15,7 @@
 @synthesize expense_id;
 @synthesize necessary;
 @synthesize cost;
+//@synthesize created_at;
 
 - (NSString *)formattedExpenseValue {
 	
