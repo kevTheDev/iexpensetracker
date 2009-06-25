@@ -11,16 +11,24 @@
 #import "NewExpenseViewController.h"
 #import "ExpensesListViewController.h"
 #import "Expense.h"
+#import "GraphViewController.h"
 
 @implementation ExpensesRatioViewController
 
 @synthesize newExpenseViewController;
 @synthesize expensesListViewController;
+@synthesize graphViewController;
 
 - (IBAction)showListView {
 	NSLog(@"POP VIEW");
 	//[self presentModalViewController:expensesListViewController animated:YES];
 	[[self navigationController] pushViewController:expensesListViewController animated:YES];
+}
+
+- (IBAction)showGraphView {
+	NSLog(@"POP GRAPH VIEW");
+	//[self presentModalViewController:expensesListViewController animated:YES];
+	[[self navigationController] pushViewController:graphViewController animated:YES];
 }
 
 
@@ -254,7 +262,10 @@
 
 
 - (void)dealloc {
-    [super dealloc];
+	[newExpenseViewController release];
+	[expensesListViewController release];
+	[graphViewController release];
+    [super dealloc];	
 }
 
 - (IBAction)sendFeeback {

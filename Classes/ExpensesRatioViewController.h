@@ -12,10 +12,12 @@
 @class NewExpenseViewController;
 @class ExpensesListViewController;
 @class GlossyLabel;
+@class GraphViewController;
 
 @interface ExpensesRatioViewController : UIViewController {
 	IBOutlet ExpensesListViewController *expensesListViewController;
 	IBOutlet NewExpenseViewController *newExpenseViewController;
+	IBOutlet GraphViewController *graphViewController;
 	IBOutlet UISegmentedControl *segmentedControl;
 	IBOutlet GlossyLabel *necessaryLabel;
 	IBOutlet GlossyLabel *luxuryLabel;
@@ -30,6 +32,7 @@
 - (IBAction)showListView;
 - (IBAction)showNewExpenseView;
 - (IBAction)sendFeeback;
+- (IBAction)showGraphView;
 
 - (void)setupFramesWithPercentageNecessary:(int)percentageNecessary withPercentageLuxury:(int)percentageLuxury;
 
@@ -38,5 +41,6 @@
 
 @property (nonatomic, retain) IBOutlet NewExpenseViewController *newExpenseViewController;
 @property (nonatomic, retain) IBOutlet ExpensesListViewController *expensesListViewController;
+@property (nonatomic, retain) IBOutlet GraphViewController *graphViewController;
 
 @end
