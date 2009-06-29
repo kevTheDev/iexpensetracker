@@ -12,6 +12,7 @@
 #import "ExpensesListViewController.h"
 #import "Expense.h"
 #import "GraphViewController.h"
+#import "Arithmetic.h"
 
 @implementation ExpensesRatioViewController
 
@@ -112,7 +113,7 @@
 	}
 	
 	
-	percentageNecessary = [ExpenseDAO roundFloatToInteger:percentageNecessary];
+	percentageNecessary = [Arithmetic roundFloatToInteger:percentageNecessary];
 	float percentageLuxury = 100 - percentageNecessary;
 	
 	NSLog(@"NEC: %f%", percentageNecessary);

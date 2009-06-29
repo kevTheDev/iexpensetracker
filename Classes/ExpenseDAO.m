@@ -8,6 +8,7 @@
 
 #import "ExpenseDAO.h"
 #import "SQLiteAccess.h"
+#import "Arithmetic.h"
 
 @implementation ExpenseDAO
 
@@ -46,41 +47,41 @@
 }
 
 + (float) totalExpenseCosts {	
-	return [ExpenseDAO floatArraySummer:[ExpenseDAO fetchNecessaryExpenseCosts]] + [ExpenseDAO floatArraySummer:[ExpenseDAO fetchUnnecessaryExpenseCosts]];
+	return [Arithmetic floatArraySummer:[ExpenseDAO fetchNecessaryExpenseCosts]] + [Arithmetic floatArraySummer:[ExpenseDAO fetchUnnecessaryExpenseCosts]];
 }
 
 + (float) totalNecessaryExpenseCosts {
 	
 	NSArray *expenses = [ExpenseDAO fetchNecessaryExpenseCosts];
-	return [ExpenseDAO floatArraySummer:expenses];	
+	return [Arithmetic floatArraySummer:expenses];	
 }
 
 + (float) totalLuxuryExpenseCosts {
 	
 	NSArray *expenses = [ExpenseDAO fetchUnnecessaryExpenseCosts];
-	return [ExpenseDAO floatArraySummer:expenses];	
+	return [Arithmetic floatArraySummer:expenses];	
 }
 
 + (float) lastWeeksTotalNecessaryExpenseCosts {
 	
 	NSArray *expenses = [ExpenseDAO fetchLastWeeksNecessaryExpenseCosts];
-	return [ExpenseDAO floatArraySummer:expenses];	
+	return [Arithmetic floatArraySummer:expenses];	
 }
 
 + (float) lastWeeksTotalLuxuryExpenseCosts {
 	
 	NSArray *expenses = [ExpenseDAO fetchLastWeeksLuxuryExpenseCosts];
-	return [ExpenseDAO floatArraySummer:expenses];	
+	return [Arithmetic floatArraySummer:expenses];	
 }
 
 + (float) lastMonthsTotalNecessaryExpenseCosts {
 	NSArray *expenses = [ExpenseDAO fetchLastMonthsNecessaryExpenseCosts];
-	return [ExpenseDAO floatArraySummer:expenses];
+	return [Arithmetic floatArraySummer:expenses];
 }
 
 + (float) lastMonthsTotalLuxuryExpenseCosts {
 	NSArray *expenses = [ExpenseDAO fetchLastMonthsLuxuryExpenseCosts];
-	return [ExpenseDAO floatArraySummer:expenses];	
+	return [Arithmetic floatArraySummer:expenses];	
 }
 
 
@@ -100,56 +101,7 @@
 	
 }
 
-+ (NSString *)roundedNumber:(float)numberToRound {
-	
-	float roundedValue = round(2.0f * numberToRound) / 2.0f;
-	NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
-	[formatter setMaximumFractionDigits:2];
-	[formatter setRoundingMode: NSNumberFormatterRoundUp];
-	
-	NSString *numberString = [formatter stringFromNumber:[NSNumber numberWithFloat:roundedValue]];
-	[formatter release];
-	
-	return numberString;
-	
-}
 
-+ (NSString *)roundedWholeNumber:(float)numberToRound {
-	float roundedValue = round(2.0f * numberToRound) / 2.0f;
-	NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
-	[formatter setMaximumFractionDigits:0];
-	[formatter setRoundingMode: NSNumberFormatterRoundUp];
-	
-	NSString *numberString = [formatter stringFromNumber:[NSNumber numberWithFloat:roundedValue]];
-	[formatter release];
-	
-	return numberString;
-}
-
-+ (float)roundFloatToInteger:(float)numberToRound {
-	float roundedValue = round(2.0f * numberToRound) / 2.0f;
-	NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
-	[formatter setMaximumFractionDigits:0];
-	[formatter setRoundingMode: NSNumberFormatterRoundUp];
-	
-	NSString *numberString = [formatter stringFromNumber:[NSNumber numberWithFloat:roundedValue]];
-	[formatter release];
-	
-	float wholeValue = [numberString floatValue];
-	return wholeValue;
-}
-
-+ (float) floatArraySummer:(NSArray *)floatArray {
-	
-	float summedValue = 0.0;
-	
-	int numOfElements = [floatArray count];
-	
-	for(int i=0; i < numOfElements; i++) {
-		summedValue += [[floatArray objectAtIndex:i] floatValue];;
-	}	
-	return summedValue;
-}
 
 + (NSArray *)fetchLastWeeksNecessaryExpenseCosts {
 	

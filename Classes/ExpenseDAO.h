@@ -26,9 +26,7 @@
 + (float) totalLuxuryExpenseCosts;
 
 + (float) percentageNecessary;
-+ (NSString *)roundedNumber:(float)numberToRound;
-+ (NSString *)roundedWholeNumber:(float)numberToRound;
-+ (float)roundFloatToInteger:(float)numberToRound;
+
 
 + (float) lastWeeksTotalNecessaryExpenseCosts;
 + (float) lastWeeksTotalLuxuryExpenseCosts;	
@@ -41,8 +39,6 @@
 + (NSArray *)fetchLastMonthsNecessaryExpenseCosts;
 + (NSArray *)fetchLastMonthsLuxuryExpenseCosts;
 + (float) lastMonthsPercentageNecessary;
-
-+ (float) floatArraySummer:(NSArray *)floatArray;
 
 + (Expense *)lastExpenseEntered;
 + (NSString *)lastExpensePercentageChange;
