@@ -52,7 +52,7 @@
 //+ (float) totalNecessaryExpenseCostsForDate:(NSDate *)date;
 //+ (float) totalExpenseCostsForDate:(NSDate *)date;
 
-//+ (float) luxuryPercentageOnThisDate(NSDate *);
++ (float) luxuryPercentageForDay:(NSDate *)date;
 //+ (float) necessaryPercentageOnThisDate(NSDate *);
 
 + (NSDateFormatter *) dateFormatter;

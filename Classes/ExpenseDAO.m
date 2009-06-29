@@ -329,17 +329,33 @@
 	
 }
 
-// gets total expense costs in a 24 hour period
-//+ (float) totalExpenseCostsForDate:(NSDate *)date {
-//	NSDateFormatter *dateFormatter = [ExpenseDAO dateFormatter];
-//	
-//	
-//	
-//	
-//	[dateFormatter release];
-//	
-//	return 0.0;
-//}
++ (float) luxuryPercentageForDay:(NSDate *)date {
+	
+	NSArray *expenses = [ExpenseDAO expensesForDay:date];
+	
+	float totalLuxuryCost = 0.0;
+	float totalCost = 0.0;
+	
+	Expense *tempExpense = [Expense alloc];
+	
+	for(int i=0; i<[expenses count]; i++) {
+		
+		tempExpense = [expenses objectAtIndex:i];
+		
+		totalCost  += [tempExpense cost];
+		
+		if(tempExpense.necessary == NO) {
+			totalLuxuryCost  += [tempExpense cost];
+		}
+		
+	}
+	
+	[tempExpense release];
+
+	return (totalLuxuryCost / totalCost) * 100.0;
+	
+}
+
 
 + (NSDateFormatter *) dateFormatter {
 	// sqlite3 date format should conform to: 2009-04-20 08:22:53
