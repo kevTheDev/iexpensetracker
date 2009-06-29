@@ -333,6 +333,8 @@
 	
 	NSArray *expenses = [ExpenseDAO expensesForDay:date];
 	
+	NSLog(@"Total expenses on day: %d", [expenses count]);
+	
 	float totalLuxuryCost = 0.0;
 	float totalCost = 0.0;
 	
@@ -352,6 +354,14 @@
 	
 	[tempExpense release];
 
+	NSLog(@"Total luxury cost: %f", totalLuxuryCost);
+	NSLog(@"Total cost: %f", totalCost);
+	
+	
+	if(totalCost == 0) {
+		return 0;
+	}
+	
 	return (totalLuxuryCost / totalCost) * 100.0;
 	
 }

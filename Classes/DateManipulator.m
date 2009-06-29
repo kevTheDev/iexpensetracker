@@ -18,7 +18,7 @@
 	NSMutableArray *week = [NSMutableArray arrayWithCapacity:7];
 	
 		
-	for(int i=7; i == 2; i--) {
+	for(int i=7; i > 1; i--) {
 		NSDate *tempDate = [endDate addTimeInterval: -i * 24 * 60 * 60];
 		[week addObject:tempDate];
 	}

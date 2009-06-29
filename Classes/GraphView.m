@@ -7,7 +7,8 @@
 //
 
 #import "GraphView.h"
-
+#import "DateManipulator.h"
+#import "ExpenseDAO.h"
 
 @implementation GraphView
 
@@ -23,7 +24,26 @@
 - (void)drawRect:(CGRect)rect {
     // Drawing code
 	[[UIColor blueColor] setFill]; 
-	UIRectFill(rect); 
+	UIRectFill(rect);
+	
+	NSDate *today = [[NSDate alloc] init];
+	NSArray *weekOfDates = [DateManipulator aWeekOfDates:today];
+	
+	NSLog(@"NUMBER OF DATES: %d", [weekOfDates count]);
+	
+	//NSMutableArray *weeksLuxuryPercentages = [NSMutableArray arrayWithCapacity:7];
+	
+	float luxuryPercentages[7];
+	float necessaryPercentages[7];
+	
+	for(int i=0; i<7; i++) {
+		luxuryPercentages[i] = [ExpenseDAO luxuryPercentageForDay:[weekOfDates objectAtIndex:i]];
+		NSLog(@"LUXURY PERCENTAGE: %f", luxuryPercentages[i]);
+		
+		necessaryPercentages[i] = 100.0 - luxuryPercentages[i];
+		
+		NSLog(@"NECESSARY PERCENTAGE: %f", necessaryPercentages[i]);
+	}
 }
 
 
