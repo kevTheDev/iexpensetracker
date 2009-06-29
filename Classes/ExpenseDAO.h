@@ -47,4 +47,22 @@
 + (Expense *)lastExpenseEntered;
 + (NSString *)lastExpensePercentageChange;
 
+ 
++ (NSArray *) luxuryExpensesForDay:(NSDate *)date;
++ (NSArray *) necessaryExpensesForDay:(NSDate *)date;
++ (NSArray *) expensesForDay:(NSDate *)date;
+
+//+ (float) totalLuxuryExpenseCostsForDate:(NSDate *)date;
+//+ (float) totalNecessaryExpenseCostsForDate:(NSDate *)date;
+//+ (float) totalExpenseCostsForDate:(NSDate *)date;
+
+//+ (float) luxuryPercentageOnThisDate(NSDate *);
+//+ (float) necessaryPercentageOnThisDate(NSDate *);
+
++ (NSDateFormatter *) dateFormatter;
+
++ (NSArray *) expenseObjectsFromSQLObjects:(NSArray *)sqlObjects;
++ (Expense *) expenseObjectFromSQLObjects:(NSArray *)sqlObjects;
+
+
 @end

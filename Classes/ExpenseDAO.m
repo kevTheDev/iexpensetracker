@@ -25,27 +25,8 @@
 
 + (NSArray *)fetchExpenses {
 	
-	NSArray *sqlObjects = [SQLiteAccess selectManyRowsWithSQL:@"SELECT * FROM expenses ORDER BY created_at DESC"];
-	NSMutableArray *expenses = [NSMutableArray arrayWithCapacity:[sqlObjects count]];
-	
-	
-	for(int i=0; i < [sqlObjects count]; i++) {
-		
-		Expense *expense = [Expense alloc];
-
-		NSDictionary *row = [sqlObjects objectAtIndex:i];
-		
-		expense.name = [row objectForKey:@"expense_name"];
-		expense.expense_id = [[row objectForKey:@"expense_id"] intValue];
-		expense.necessary = [[row objectForKey:@"expense_necessary"] boolValue];
-		expense.cost = [[row objectForKey:@"expense_cost"] floatValue];
-		
-		[expenses addObject:expense];
-		[expense release];
-
-	}
-	
-	return [NSArray arrayWithArray:expenses];
+	NSArray *sqlObjects = [SQLiteAccess selectManyRowsWithSQL:@"SELECT * FROM expenses ORDER BY created_at DESC"];	
+	return [ExpenseDAO expenseObjectsFromSQLObjects:sqlObjects];
 }
 
 + (NSArray *)fetchNecessaryExpenses {
@@ -279,26 +260,7 @@
 
 + (Expense *)lastExpenseEntered {
 	NSArray *sqlObjects = [SQLiteAccess selectManyRowsWithSQL:@"SELECT * FROM expenses ORDER BY created_at DESC LIMIT 1"];
-
-	
-	if([sqlObjects count] > 0) {
-		Expense *expense = [Expense alloc];
-	
-		NSDictionary *row = [sqlObjects objectAtIndex:0];
-		
-		expense.name = [row objectForKey:@"expense_name"];
-		expense.expense_id = [[row objectForKey:@"expense_id"] intValue];
-		expense.necessary = [[row objectForKey:@"expense_necessary"] boolValue];
-		expense.cost = [[row objectForKey:@"expense_cost"] floatValue];
-		
-		//NSLog(@"LAST NECESSARY:)
-		
-		return expense;
-	}
-	else {
-		return NULL;
-	}
-	
+	return [ExpenseDAO expenseObjectFromSQLObjects:sqlObjects];
 }
 
 // Work out the percentage change from the last expense
@@ -346,6 +308,140 @@
 	
 	return percentageChangeString;
 	
+}
+
+
+// calculates the percentage of luxury costs within a 24 hour period
+//+ (float) luxuryPercentageOnThisDay:(NSDate *)date {
+//	
+//	
+//
+//	NSString *queryString = [NSString stringWithFormat:@"SELECT expense_cost FROM expenses WHERE expense_necessary = 0 AND created_at >= '%@' AND created_at <= '%@'", startDateString, endDateString];
+//	
+//		
+//	
+//	return 0.0;
+//}
+
++ (NSArray *) luxuryExpensesForDay:(NSDate *)date {
+	
+	// sqlite3 date format should conform to: 2009-04-20 08:22:53
+	NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+	[dateFormatter setDateFormat:@"%Y-%m-%d %H:%M"];
+	
+	NSDate *twentyFourHoursLater = [date addTimeInterval: 24 * 60 * 60];
+	
+	NSString *startDateString = [dateFormatter stringFromDate:date];
+	NSString *endDateString = [dateFormatter stringFromDate:twentyFourHoursLater];
+	
+	NSString *queryString = [NSString stringWithFormat:@"SELECT * FROM expenses WHERE expense_necessary = 0 AND created_at >= '%@' AND created_at <= '%@'", startDateString, endDateString];
+	NSArray *sqlObjects = [SQLiteAccess selectManyRowsWithSQL:queryString];
+	
+	return [ExpenseDAO expenseObjectsFromSQLObjects:sqlObjects];
+	
+}
+
++ (NSArray *) necessaryExpensesForDay:(NSDate *)date {
+	
+	// sqlite3 date format should conform to: 2009-04-20 08:22:53
+	NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+	[dateFormatter setDateFormat:@"%Y-%m-%d %H:%M"];
+	
+	NSDate *twentyFourHoursLater = [date addTimeInterval: 24 * 60 * 60];
+
+	NSString *startDateString = [dateFormatter stringFromDate:date];
+	NSString *endDateString = [dateFormatter stringFromDate:twentyFourHoursLater];
+	
+	NSString *queryString = [NSString stringWithFormat:@"SELECT * FROM expenses WHERE expense_necessary = 1 AND created_at >= '%@' AND created_at <= '%@'", startDateString, endDateString];
+	NSArray *sqlObjects = [SQLiteAccess selectManyRowsWithSQL:queryString];
+	
+	return [ExpenseDAO expenseObjectsFromSQLObjects:sqlObjects];
+	
+}
+
++ (NSArray *) expensesForDay:(NSDate *)date {
+	
+	// sqlite3 date format should conform to: 2009-04-20 08:22:53
+	NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+	[dateFormatter setDateFormat:@"%Y-%m-%d %H:%M"];
+	
+	NSDate *twentyFourHoursLater = [date addTimeInterval: 24 * 60 * 60];
+	
+	NSString *startDateString = [dateFormatter stringFromDate:date];
+	NSString *endDateString = [dateFormatter stringFromDate:twentyFourHoursLater];
+	
+	NSString *queryString = [NSString stringWithFormat:@"SELECT * FROM expenses WHERE created_at >= '%@' AND created_at <= '%@'", startDateString, endDateString];
+	NSArray *sqlObjects = [SQLiteAccess selectManyRowsWithSQL:queryString];
+	
+	return [ExpenseDAO expenseObjectsFromSQLObjects:sqlObjects];
+	
+}
+
+// gets total expense costs in a 24 hour period
+//+ (float) totalExpenseCostsForDate:(NSDate *)date {
+//	NSDateFormatter *dateFormatter = [ExpenseDAO dateFormatter];
+//	
+//	
+//	
+//	
+//	[dateFormatter release];
+//	
+//	return 0.0;
+//}
+
++ (NSDateFormatter *) dateFormatter {
+	// sqlite3 date format should conform to: 2009-04-20 08:22:53
+	NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+	[dateFormatter setDateFormat:@"%Y-%m-%d %H:%M"];
+
+	return dateFormatter;
+
+}
+
+// converts sql objects from a query into an array of Expense objects
++ (NSArray *) expenseObjectsFromSQLObjects:(NSArray *)sqlObjects {
+	
+	NSMutableArray *expenses = [NSMutableArray arrayWithCapacity:[sqlObjects count]];
+
+			
+	for(int i=0; i< [sqlObjects count]; i++) {
+		
+		Expense *expense = [Expense alloc];
+		NSDictionary *row = [sqlObjects objectAtIndex:i];
+		
+		expense.name = [row objectForKey:@"expense_name"];
+		expense.expense_id = [[row objectForKey:@"expense_id"] intValue];
+		expense.necessary = [[row objectForKey:@"expense_necessary"] boolValue];
+		expense.cost = [[row objectForKey:@"expense_cost"] floatValue];
+		
+		[expenses addObject:expense];
+		
+		[expense release];
+		
+	}
+
+	return expenses;
+}
+
+// converts sql objects from a query into an Expense object
++ (Expense *) expenseObjectFromSQLObjects:(NSArray *)sqlObjects {
+	if([sqlObjects count] > 0) {
+		Expense *expense = [Expense alloc];
+		
+		NSDictionary *row = [sqlObjects objectAtIndex:0];
+		
+		expense.name = [row objectForKey:@"expense_name"];
+		expense.expense_id = [[row objectForKey:@"expense_id"] intValue];
+		expense.necessary = [[row objectForKey:@"expense_necessary"] boolValue];
+		expense.cost = [[row objectForKey:@"expense_cost"] floatValue];
+		
+		//NSLog(@"LAST NECESSARY:)
+		
+		return expense;
+	}
+	else {
+		return NULL;
+	}
 }
 
 @end
