@@ -315,14 +315,16 @@
 	
 	// sqlite3 date format should conform to: 2009-04-20 08:22:53
 	NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-	[dateFormatter setDateFormat:@"%Y-%m-%d %H:%M"];
+	[dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
 	
-	NSDate *twentyFourHoursLater = [date addTimeInterval: 24 * 60 * 60];
+	NSDate *twentyFourHoursBefore = [date addTimeInterval: -24 * 60 * 60];
 	
-	NSString *startDateString = [dateFormatter stringFromDate:date];
-	NSString *endDateString = [dateFormatter stringFromDate:twentyFourHoursLater];
+	NSString *startDateString = [dateFormatter stringFromDate:twentyFourHoursBefore];
+	NSString *endDateString = [dateFormatter stringFromDate:date];
 	
 	NSString *queryString = [NSString stringWithFormat:@"SELECT * FROM expenses WHERE created_at >= '%@' AND created_at <= '%@'", startDateString, endDateString];
+	NSLog(@"Query string: %@", queryString);
+	
 	NSArray *sqlObjects = [SQLiteAccess selectManyRowsWithSQL:queryString];
 	
 	return [ExpenseDAO expenseObjectsFromSQLObjects:sqlObjects];
@@ -331,9 +333,14 @@
 
 + (float) luxuryPercentageForDay:(NSDate *)date {
 	
+	NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+	//[dateFormatter setDateFormat:@"%Y-%m-%d %H:%M"];
+	[dateFormatter setDateStyle:NSDateFormatterShortStyle];
+
+	
 	NSArray *expenses = [ExpenseDAO expensesForDay:date];
 	
-	NSLog(@"Total expenses on day: %d", [expenses count]);
+	NSLog(@"Total number of expenses on day %@ : %d", [dateFormatter stringFromDate:date], [expenses count]);
 	
 	float totalLuxuryCost = 0.0;
 	float totalCost = 0.0;
