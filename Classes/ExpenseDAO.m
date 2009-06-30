@@ -9,6 +9,7 @@
 #import "ExpenseDAO.h"
 #import "SQLiteAccess.h"
 #import "Arithmetic.h"
+#import "DateManipulator.h"
 
 @implementation ExpenseDAO
 
@@ -106,41 +107,25 @@
 + (NSArray *)fetchLastWeeksNecessaryExpenseCosts {
 	
 	// sqlite3 date format should conform to: 2009-04-20 08:22:53
-	NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-	[dateFormatter setDateFormat:@"%Y-%m-%d %H:%M"];
+
 	
 	NSDate *today = [[NSDate alloc] init];
 	NSDate *aWeekAgo = [today addTimeInterval: -7 * 24 * 60 * 60];
 	
-	//NSString *todayString = [dateFormatter stringFromDate:today];
-	NSString *weekAgoString = [dateFormatter stringFromDate:aWeekAgo];
-	
-	//NSLog(@"Today: %@", todayString);
-	//NSLog(@"A week ago: %@", weekAgoString);
+	NSString *weekAgoString = [DateManipulator sqliteDateTimeString:aWeekAgo];	
 	NSString *queryString = [NSString stringWithFormat:@"SELECT expense_cost FROM expenses WHERE expense_necessary = 1 AND created_at >= '%@'", weekAgoString];
-	
-	//NSLog(@"QUERY STRING: %@", queryString);
+
 	
 	return [SQLiteAccess selectManyValuesWithSQL:queryString];
 }
 
 + (NSArray *)fetchLastWeeksLuxuryExpenseCosts {
 	
-	// sqlite3 date format should conform to: 2009-04-20 08:22:53
-	NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-	[dateFormatter setDateFormat:@"%Y-%m-%d %H:%M"];
-	
 	NSDate *today = [[NSDate alloc] init];
 	NSDate *aWeekAgo = [today addTimeInterval: -7 * 24 * 60 * 60];
 	
-	//NSString *todayString = [dateFormatter stringFromDate:today];
-	NSString *weekAgoString = [dateFormatter stringFromDate:aWeekAgo];
-	
-	//NSLog(@"Today: %@", todayString);
-	//NSLog(@"A week ago: %@", weekAgoString);
+	NSString *weekAgoString = [DateManipulator sqliteDateTimeString:aWeekAgo];
 	NSString *queryString = [NSString stringWithFormat:@"SELECT expense_cost FROM expenses WHERE expense_necessary = 0 AND created_at >= '%@'", weekAgoString];
-	
-	//NSLog(@"QUERY STRING: %@", queryString);
 	
 	return [SQLiteAccess selectManyValuesWithSQL:queryString];
 }
@@ -148,50 +133,34 @@
 + (float) lastWeeksPercentageNecessary {
 	float totalNecessaryExpenseCosts = [ExpenseDAO lastWeeksTotalNecessaryExpenseCosts];
 	float totalLuxuryExpenseCosts = [ExpenseDAO lastWeeksTotalLuxuryExpenseCosts];
-	
-	//NSLog(@"Total necessary expenses: %f", totalNecessaryExpenseCosts);
-	//NSLog(@"Total luxury expenses: %f", totalLuxuryExpenseCosts);
+
 	
 	float totalExpenses = totalNecessaryExpenseCosts + totalLuxuryExpenseCosts;
 	
-	//NSLog(@"Total expenses: %f", totalExpenses);
 	
 	return (totalNecessaryExpenseCosts / totalExpenses) * 100;
 }
 
 // TODO refactor this unDRY date formatter init stuff and also mem management needs handling
 + (NSArray *)fetchLastMonthsNecessaryExpenseCosts {
-	// sqlite3 date format should conform to: 2009-04-20 08:22:53
-	NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-	[dateFormatter setDateFormat:@"%Y-%m-%d %H:%M"];
 	
 	NSDate *today = [[NSDate alloc] init];
 	NSDate *aMonthAgo = [today addTimeInterval: -30 * 24 * 60 * 60];
 	
-	NSString *aMonthAgoString = [dateFormatter stringFromDate:aMonthAgo];
-	
+	NSString *aMonthAgoString = [DateManipulator sqliteDateTimeString:aMonthAgo];
 	NSString *queryString = [NSString stringWithFormat:@"SELECT expense_cost FROM expenses WHERE expense_necessary = 1 AND created_at >= '%@'", aMonthAgoString];
-	
-	
-	
+
 	return [SQLiteAccess selectManyValuesWithSQL:queryString];
 	
 }
 
 + (NSArray *)fetchLastMonthsLuxuryExpenseCosts {
-	// sqlite3 date format should conform to: 2009-04-20 08:22:53
-	NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-	[dateFormatter setDateFormat:@"%Y-%m-%d %H:%M"];
 	
 	NSDate *today = [[NSDate alloc] init];
 	NSDate *aMonthAgo = [today addTimeInterval: -30 * 24 * 60 * 60];
 	
-	NSString *aMonthAgoString = [dateFormatter stringFromDate:aMonthAgo];
-	
-	//NSLog(@"A month ago: %@", aMonthAgoString);
+	NSString *aMonthAgoString = [DateManipulator sqliteDateTimeString:aMonthAgo];
 	NSString *queryString = [NSString stringWithFormat:@"SELECT expense_cost FROM expenses WHERE expense_necessary = 0 AND created_at >= '%@'", aMonthAgoString];
-	
-	//NSLog(@"QUERY STRING: %@", queryString);
 	
 	return [SQLiteAccess selectManyValuesWithSQL:queryString];
 }
@@ -277,14 +246,10 @@
 
 + (NSArray *) luxuryExpensesForDay:(NSDate *)date {
 	
-	// sqlite3 date format should conform to: 2009-04-20 08:22:53
-	NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-	[dateFormatter setDateFormat:@"%Y-%m-%d %H:%M"];
-	
 	NSDate *twentyFourHoursBefore = [date addTimeInterval: -24 * 60 * 60];
 	
-	NSString *startDateString = [dateFormatter stringFromDate:twentyFourHoursBefore];
-	NSString *endDateString = [dateFormatter stringFromDate:date];
+	NSString *startDateString = [DateManipulator sqliteDateTimeString:twentyFourHoursBefore];
+	NSString *endDateString = [DateManipulator sqliteDateTimeString:date];
 	
 	NSString *queryString = [NSString stringWithFormat:@"SELECT * FROM expenses WHERE expense_necessary = 0 AND created_at >= '%@' AND created_at <= '%@'", startDateString, endDateString];
 	NSArray *sqlObjects = [SQLiteAccess selectManyRowsWithSQL:queryString];
@@ -294,15 +259,11 @@
 }
 
 + (NSArray *) necessaryExpensesForDay:(NSDate *)date {
-	
-	// sqlite3 date format should conform to: 2009-04-20 08:22:53
-	NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-	[dateFormatter setDateFormat:@"%Y-%m-%d %H:%M"];
-	
+
 	NSDate *twentyFourHoursBefore = [date addTimeInterval: -24 * 60 * 60];
 
-	NSString *startDateString = [dateFormatter stringFromDate:twentyFourHoursBefore];
-	NSString *endDateString = [dateFormatter stringFromDate:date];
+	NSString *startDateString = [DateManipulator sqliteDateTimeString:twentyFourHoursBefore];
+	NSString *endDateString = [DateManipulator sqliteDateTimeString:date];
 	
 	NSString *queryString = [NSString stringWithFormat:@"SELECT * FROM expenses WHERE expense_necessary = 1 AND created_at >= '%@' AND created_at <= '%@'", startDateString, endDateString];
 	NSArray *sqlObjects = [SQLiteAccess selectManyRowsWithSQL:queryString];
@@ -313,14 +274,10 @@
 
 + (NSArray *) expensesForDay:(NSDate *)date {
 	
-	// sqlite3 date format should conform to: 2009-04-20 08:22:53
-	NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-	[dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-	
 	NSDate *twentyFourHoursBefore = [date addTimeInterval: -24 * 60 * 60];
 	
-	NSString *startDateString = [dateFormatter stringFromDate:twentyFourHoursBefore];
-	NSString *endDateString = [dateFormatter stringFromDate:date];
+	NSString *startDateString = [DateManipulator sqliteDateTimeString:twentyFourHoursBefore];
+	NSString *endDateString = [DateManipulator sqliteDateTimeString:date];
 	
 	NSString *queryString = [NSString stringWithFormat:@"SELECT * FROM expenses WHERE created_at >= '%@' AND created_at <= '%@'", startDateString, endDateString];
 	NSLog(@"Query string: %@", queryString);

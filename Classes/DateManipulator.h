@@ -15,4 +15,7 @@
 
 + (NSArray *) aWeekOfDates:(NSDate *)endDate;
 
+// returns a string in sqlite3 format from a date
++ (NSString *) sqliteDateTimeString:(NSDate *)date;
+
 @end
