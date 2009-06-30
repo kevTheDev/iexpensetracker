@@ -281,10 +281,10 @@
 	NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
 	[dateFormatter setDateFormat:@"%Y-%m-%d %H:%M"];
 	
-	NSDate *twentyFourHoursLater = [date addTimeInterval: 24 * 60 * 60];
+	NSDate *twentyFourHoursBefore = [date addTimeInterval: -24 * 60 * 60];
 	
-	NSString *startDateString = [dateFormatter stringFromDate:date];
-	NSString *endDateString = [dateFormatter stringFromDate:twentyFourHoursLater];
+	NSString *startDateString = [dateFormatter stringFromDate:twentyFourHoursBefore];
+	NSString *endDateString = [dateFormatter stringFromDate:date];
 	
 	NSString *queryString = [NSString stringWithFormat:@"SELECT * FROM expenses WHERE expense_necessary = 0 AND created_at >= '%@' AND created_at <= '%@'", startDateString, endDateString];
 	NSArray *sqlObjects = [SQLiteAccess selectManyRowsWithSQL:queryString];
@@ -299,10 +299,10 @@
 	NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
 	[dateFormatter setDateFormat:@"%Y-%m-%d %H:%M"];
 	
-	NSDate *twentyFourHoursLater = [date addTimeInterval: 24 * 60 * 60];
+	NSDate *twentyFourHoursBefore = [date addTimeInterval: -24 * 60 * 60];
 
-	NSString *startDateString = [dateFormatter stringFromDate:date];
-	NSString *endDateString = [dateFormatter stringFromDate:twentyFourHoursLater];
+	NSString *startDateString = [dateFormatter stringFromDate:twentyFourHoursBefore];
+	NSString *endDateString = [dateFormatter stringFromDate:date];
 	
 	NSString *queryString = [NSString stringWithFormat:@"SELECT * FROM expenses WHERE expense_necessary = 1 AND created_at >= '%@' AND created_at <= '%@'", startDateString, endDateString];
 	NSArray *sqlObjects = [SQLiteAccess selectManyRowsWithSQL:queryString];
